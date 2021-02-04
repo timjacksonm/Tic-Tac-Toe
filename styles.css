@@ -5,7 +5,7 @@ body {
   flex-direction: column;
   height: 100vh;
 }
-img {
+main img {
   margin: 0;
   padding: 1px;
   width: 8vh;
@@ -13,10 +13,9 @@ img {
   align-self: center;
   flex: 1;
 }
-div {
+main div {
   display: flex;
   flex: 1;
-  background-color: #ffffff;
 }
 .header {
   padding: 3em 1em;
@@ -47,20 +46,24 @@ div {
 .gameBoard div {
   min-height: 3em;
   min-width: 3em;
-  border: 0.7px ridge #04082e;
-  background-color: #bfe6ef;
+  border: 0.7px ridge #3355dd;
+  background-color: #000000;
   text-align: center;
 }
 .footer {
-  padding: 0.5em 1em;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: #04082e;
   font-size: 12px;
   color: #eebd6b;
 }
+.logo {
+  padding-left: 10px;
+}
 /* Medium devices (tablets etc) */
 @media (min-width: 768px) {
-  img {
+  main img {
     width: 9vh;
     height: 9vh;
   }
