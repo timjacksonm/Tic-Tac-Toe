@@ -19,13 +19,13 @@ div {
   background-color: #ffffff;
 }
 .header {
-  padding: 3em 1em;
+  padding: 2em 1em;
   text-align: center;
   background-color: rgb(255, 17, 0);
   font-size: 20px;
 }
 .menu {
-  padding: 2em 1em;
+  padding: 1em 1em;
   text-align: center;
   background-color: rgb(255, 115, 0);
   font-size: 16px;
@@ -46,7 +46,7 @@ div {
   text-align: center;
 }
 .footer {
-  padding: 1em 1em;
+  padding: 0.5em 1em;
   text-align: center;
   background-color: rgb(0, 255, 0);
   font-size: 16px;
