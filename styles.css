@@ -20,21 +20,21 @@ main div {
 .header {
   padding: 3em 1em;
   text-align: center;
-  /* background-color: #3355dd; */
   background-color: #04082e;
   font-size: 20px;
   color: #eebd6b;
   font-weight: bolder;
   font-family: "Times New Roman", Times, serif;
+  border-bottom: 1.5px solid #0f8b8d;
 }
 .menu {
   padding: 2em 1em;
   text-align: center;
-  /* background-color: #bfe6ef; */
   background-color: #3355dd;
   font-size: 16px;
   color: #bfe6ef;
   font-family: "Times New Roman", Times, serif;
+  border-top: 1.5px solid #0f8b8d;
 }
 .gameBoard {
   flex: 1;
@@ -43,14 +43,27 @@ main div {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   background-color: #447695;
-  border: 1px solid #04082e;
+  border-top: 2px solid #0f8b8d;
+  border-bottom: 2px solid #0f8b8d;
 }
 .gameBoard div {
   min-height: 3em;
   min-width: 3em;
-  border: 0.7px ridge #3355dd;
+  outline: 1px groove #3355dd;
   background-color: #000000;
   text-align: center;
+}
+.top {
+  border-top: 1.5px solid #0f8b8d;
+}
+.bot {
+  border-bottom: 1.5px solid #0f8b8d;
+}
+.left {
+  border-left: 1.5px solid #0f8b8d;
+}
+.right {
+  border-right: 1.5px solid #0f8b8d;
 }
 .footer {
   display: inline-flex;
