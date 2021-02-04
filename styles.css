@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+img {
+  margin: 0;
+  padding: 1px;
+  width: 8vh;
+  height: 8vh;
+  align-self: center;
+  flex: 1;
+}
+div {
+  display: flex;
+  flex: 1;
+  background-color: #ffffff;
+}
+.header {
+  padding: 3em 1em;
+  text-align: center;
+  background-color: rgb(255, 17, 0);
+  font-size: 20px;
+}
+.menu {
+  padding: 2em 1em;
+  text-align: center;
+  background-color: rgb(255, 115, 0);
+  font-size: 16px;
+}
+.gameBoard {
+  flex: 1;
+  padding: 12% 9%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  background-color: rgb(28, 28, 28);
+}
+.gameBoard div {
+  min-height: 3em;
+  min-width: 3em;
+  border-style: solid;
+  border-color: #000000;
+  text-align: center;
+}
+.footer {
+  padding: 1em 1em;
+  text-align: center;
+  background-color: rgb(0, 255, 0);
+  font-size: 16px;
+}
+/* Medium devices (tablets etc) */
+@media (min-width: 768px) {
+  img {
+    width: 9vh;
+    height: 9vh;
+  }
+  .header {
+    font-size: 30px;
+  }
+  .menu {
+    font-size: 20px;
+  }
+  .gameBoard {
+    padding: 10% 10%;
+  }
+  .footer {
+    font-size: 20px;
+  }
+}
+/* Large devices (ipads / laptops etc) */
+@media (min-width: 1025px) {
+  .header {
+    font-size: 30px;
+    padding: 2em 1em;
+  }
+  .menu {
+    font-size: 18px;
+    padding: 1em 1em;
+  }
+  .gameBoard {
+    padding: 2% 20%;
+  }
+  .footer {
+    font-size: 18px;
+    padding: 0.5em 0.5em;
+  }
+}
+/* Extra large devices (large desktops etc) */
+@media (min-width: 1920px) {
+  .header {
+    font-size: 30px;
+  }
+  .menu {
+    font-size: 18px;
+  }
+  .gameBoard {
+    padding: 1% 30%;
+  }
+  .footer {
+    font-size: 18px;
+  }
+}
