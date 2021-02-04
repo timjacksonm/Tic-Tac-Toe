@@ -20,7 +20,8 @@ main div {
 .header {
   padding: 3em 1em;
   text-align: center;
-  background-color: #3355dd;
+  /* background-color: #3355dd; */
+  background-color: #04082e;
   font-size: 20px;
   color: #eebd6b;
   font-weight: bolder;
@@ -29,9 +30,10 @@ main div {
 .menu {
   padding: 2em 1em;
   text-align: center;
-  background-color: #bfe6ef;
+  /* background-color: #bfe6ef; */
+  background-color: #3355dd;
   font-size: 16px;
-  color: #04082e;
+  color: #bfe6ef;
   font-family: "Times New Roman", Times, serif;
 }
 .gameBoard {
