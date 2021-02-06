@@ -4,22 +4,24 @@ const myModule =((function() {
 
   let _gameBoard = ["", "", "", "", "", "", "", "", ""];
   let _displayController = [];
+  let boxNum = '';
   
   function createBoard() {
+    
     for (let i = 1; i < 10; i++) {
       const createBoard = document.createElement('div');
-      createBoard.setAttribute('id', `box${i}`);
+      createBoard.setAttribute('id', `Box${i}`);
       selectMain.appendChild(createBoard);
     };
-    const Box1 = document.getElementById('box1');
-    const Box2 = document.getElementById('box2');
-    const Box3 = document.getElementById('box3');
-    const Box4 = document.getElementById('box4');
-    const Box5 = document.getElementById('box5');
-    const Box6 = document.getElementById('box6');
-    const Box7 = document.getElementById('box7');
-    const Box8 = document.getElementById('box8');
-    const Box9 = document.getElementById('box9');
+    const Box1 = document.getElementById('Box1');
+    const Box2 = document.getElementById('Box2');
+    const Box3 = document.getElementById('Box3');
+    const Box4 = document.getElementById('Box4');
+    const Box5 = document.getElementById('Box5');
+    const Box6 = document.getElementById('Box6');
+    const Box7 = document.getElementById('Box7');
+    const Box8 = document.getElementById('Box8');
+    const Box9 = document.getElementById('Box9');
     Box1.setAttribute('class', 'top left');
     Box2.setAttribute('class', 'top');
     Box3.setAttribute('class', 'top right');
@@ -30,8 +32,42 @@ const myModule =((function() {
     Box8.setAttribute('class', 'bot');
     Box9.setAttribute('class', 'bot right');
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
+    
+    function addEventListeners() {
+      Box1.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();});
+      Box2.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();});
+      Box3.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
+      Box4.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
+      Box5.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
+      Box6.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
+      Box7.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
+      Box8.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
+      Box9.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();});  
+    }
+
+    addEventListeners();
   };
-  const choice = (symbol, boxNum) => {
+  const choice = () => {
+    let symbol = '';
+    function checkTurn() {
+      let symbolX = myModule._gameBoard.filter( string => string.includes("X"))
+      let symbolO = myModule._gameBoard.filter(string => string.includes("O"));
+      let symbolCountX= symbolX.length;
+      let symbolCountO = symbolO.length;
+
+      if(_gameBoard.includes("X" || "O")) {
+        if (symbolCountX > symbolCountO) {
+          return symbol = "O"
+        }else {
+          return symbol = "X"
+        }
+
+      }else {
+        return symbol = "X";
+      }
+    };
+
+    checkTurn();
     const X = document.createElement('img');
     X.setAttribute('src', "graphics/GoldTypographyX.svg");
     const O = document.createElement('img');
@@ -77,7 +113,7 @@ const myModule =((function() {
           break;
         default:
           }
-    }else if(player == 'playerTwo') {
+    }else if(symbol == 'O') {
       switch (boxNum) {
         case 'Box1':
           _displayController[0].appendChild(O);
@@ -126,11 +162,10 @@ const myModule =((function() {
     _gameBoard: _gameBoard,
   }
 }))();
-const playerFactory = (name, symbol, box) => {
+const playerFactory = (name, symbol) => {
     getName = name;
     getSymbol = symbol;
-    getBoxNum = box;
-    return {name, symbol, box};
+    return {name, symbol};
 };
 Object.assign(playerFactory, myModule);
-const playerOne = playerFactory("tim", 'X', 'Box4');
+const playerOne = playerFactory("tim", 'X');
