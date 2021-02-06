@@ -48,8 +48,10 @@ const myModule =((function() {
     addEventListeners();
   };
   const choice = () => {
+
     let symbol = '';
-    function checkTurn() {
+
+    function checkTurn(playerOneTurn, playerTwoTurn) {
       let symbolX = myModule._gameBoard.filter( string => string.includes("X"))
       let symbolO = myModule._gameBoard.filter(string => string.includes("O"));
       let symbolCountX= symbolX.length;
@@ -62,12 +64,14 @@ const myModule =((function() {
           return symbol = "X"
         }
 
-      }else {
+      }else if(playerOneTurn == 'First' && playerTwoTurn == 'Second') {
         return symbol = "X";
+      }else {
+        return symbol = "O";
       }
     };
 
-    checkTurn();
+    checkTurn(playerOne.turn, playerTwo.turn);
     const X = document.createElement('img');
     X.setAttribute('src', "graphics/GoldTypographyX.svg");
     const O = document.createElement('img');
@@ -162,10 +166,12 @@ const myModule =((function() {
     _gameBoard: _gameBoard,
   }
 }))();
-const playerFactory = (name, symbol) => {
+const playerFactory = (name, symbol, turn) => {
     getName = name;
     getSymbol = symbol;
-    return {name, symbol};
+    getTurn = turn;
+    return {name, symbol, turn};
 };
 Object.assign(playerFactory, myModule);
-const playerOne = playerFactory("tim", 'X');
+const playerOne = playerFactory("tim", 'X', 'First');
+const playerTwo = playerFactory("jake", 'O', 'Second');
