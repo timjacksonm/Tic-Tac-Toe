@@ -1,10 +1,18 @@
+const playerFactory = (name, symbol, turn) => {
+  getName = name;
+  getSymbol = symbol;
+  getTurn = turn;
+  return {name, symbol, turn};
+};
 const myModule =((function() {
   'use strict';
   const selectMain = document.querySelector('main');
 
   let _gameBoard = ["", "", "", "", "", "", "", "", ""];
   let _displayController = [];
-  let boxNum = '';
+  let _boxNum = '';
+  const _playerOne = playerFactory("tim", 'X', 'First');
+  const _playerTwo = playerFactory("jake", 'O', 'Second');
   
   function createBoard() {
     
@@ -34,24 +42,24 @@ const myModule =((function() {
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
     
     function addEventListeners() {
-      Box1.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();});
-      Box2.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();});
-      Box3.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
-      Box4.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
-      Box5.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
-      Box6.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
-      Box7.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
-      Box8.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();}); 
-      Box9.addEventListener('click', (e) => {boxNum = e.target.attributes[0].value; choice();});  
+      Box1.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();});
+      Box2.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();});
+      Box3.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
+      Box4.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
+      Box5.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
+      Box6.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
+      Box7.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
+      Box8.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
+      Box9.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();});  
     }
 
     addEventListeners();
   };
-  const choice = () => {
+  const _choice = () => {
 
     let symbol = '';
 
-    function checkTurn(playerOneTurn, playerTwoTurn) {
+    function checkTurn(_playerOneTurn, _playerTwoTurn) {
       let symbolX = myModule._gameBoard.filter( string => string.includes("X"))
       let symbolO = myModule._gameBoard.filter(string => string.includes("O"));
       let symbolCountX= symbolX.length;
@@ -64,21 +72,21 @@ const myModule =((function() {
           return symbol = "X"
         }
 
-      }else if(playerOneTurn == 'First' && playerTwoTurn == 'Second') {
+      }else if(_playerOneTurn == 'First' && _playerTwoTurn == 'Second') {
         return symbol = "X";
       }else {
         return symbol = "O";
       }
     };
 
-    checkTurn(playerOne.turn, playerTwo.turn);
+    checkTurn(_playerOne.turn, _playerTwo.turn);
     const X = document.createElement('img');
     X.setAttribute('src', "graphics/GoldTypographyX.svg");
     const O = document.createElement('img');
     O.setAttribute('src', "graphics/GoldTypography0.svg");
 
     if(symbol == 'X') {
-      switch (boxNum) {
+      switch (_boxNum) {
         case 'Box1':
           _displayController[0].appendChild(X);
           _gameBoard[0] = 'X';
@@ -118,7 +126,7 @@ const myModule =((function() {
         default:
           }
     }else if(symbol == 'O') {
-      switch (boxNum) {
+      switch (_boxNum) {
         case 'Box1':
           _displayController[0].appendChild(O);
           _gameBoard[0] = 'O';
@@ -162,16 +170,6 @@ const myModule =((function() {
   
   return {
     createBoard: createBoard,
-    choice: choice,
     _gameBoard: _gameBoard,
   }
 }))();
-const playerFactory = (name, symbol, turn) => {
-    getName = name;
-    getSymbol = symbol;
-    getTurn = turn;
-    return {name, symbol, turn};
-};
-Object.assign(playerFactory, myModule);
-const playerOne = playerFactory("tim", 'X', 'First');
-const playerTwo = playerFactory("jake", 'O', 'Second');
