@@ -11,8 +11,8 @@ const Gameboard =((function() {
   let _gameBoard = ["", "", "", "", "", "", "", "", ""];
   let _displayController = [];
   let _boxNum = '';
-  const _playerOne = playerFactory("tim", 'X', 'First');
-  const _playerTwo = playerFactory("jake", 'O', 'Second');
+  const _playerOne = playerFactory("Tim", 'X', 'First');
+  const _playerTwo = playerFactory("Jake", 'O', 'Second');
   
   function createBoard() {
     
@@ -104,7 +104,7 @@ const Gameboard =((function() {
   const _choice = () => {
 
     let symbol = '';
-
+  
     function checkTurn(_playerOneTurn, _playerTwoTurn) {
       let symbolX = _gameBoard.filter( string => string.includes("X"))
       let symbolO = _gameBoard.filter(string => string.includes("O"));
@@ -136,38 +136,47 @@ const Gameboard =((function() {
         case 'Box1':
           _displayController[0].appendChild(X);
           _gameBoard[0] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box2':
           _displayController[1].appendChild(X);
           _gameBoard[1] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box3':
           _displayController[2].appendChild(X);
           _gameBoard[2] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box4':
           _displayController[3].appendChild(X);
           _gameBoard[3] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box5':
           _displayController[4].appendChild(X);
           _gameBoard[4] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box6':
           _displayController[5].appendChild(X);
           _gameBoard[5] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box7':
           _displayController[6].appendChild(X);
           _gameBoard[6] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box8':
           _displayController[7].appendChild(X);
           _gameBoard[7] = 'X';
+          Gameboard.checkGameOver();
           break;
         case 'Box9':
           _displayController[8].appendChild(X);
           _gameBoard[8] = 'X';
+          Gameboard.checkGameOver();
           break;
         default:
           }
@@ -176,40 +185,107 @@ const Gameboard =((function() {
         case 'Box1':
           _displayController[0].appendChild(O);
           _gameBoard[0] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box2':
           _displayController[1].appendChild(O);
           _gameBoard[1] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box3':
           _displayController[2].appendChild(O);
           _gameBoard[2] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box4':
           _displayController[3].appendChild(O);
           _gameBoard[3] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box5':
           _displayController[4].appendChild(O);
           _gameBoard[4] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box6':
           _displayController[5].appendChild(O);
           _gameBoard[5] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box7':
           _displayController[6].appendChild(O);
           _gameBoard[6] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box8':
           _displayController[7].appendChild(O);
           _gameBoard[7] = 'O';
+          Gameboard.checkGameOver();
           break;
         case 'Box9':
           _displayController[8].appendChild(O);
           _gameBoard[8] = 'O';
+          Gameboard.checkGameOver();
           break;
         default:
+      };
+    };
+  };
+
+  function checkGameOver() {
+    if(_gameBoard.includes("X" || "O")) {
+      if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX" || _gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "OOO") {
+        if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX" || _gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "OOO"){
+        if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX" || _gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "OOO") {
+        if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX" || _gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "OOO") {
+        if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX" || _gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "OOO") {
+        if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX" || _gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "OOO") {
+        if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX" || _gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "OOO") {
+        if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX" || _gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "OOO") {
+        if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX") {
+          console.log("GameOver, " + _playerOne.name + " You Win!")
+        }else {
+          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!")
+        }
+      }else if(_gameBoard.includes("")){
+        return console.log("Game stil ongoing");
+      }else {
+        return console.log(_playerOne.name + " vs " + _playerTwo.name + " Result in a Tie!");
       };
     };
   };
@@ -217,6 +293,7 @@ const Gameboard =((function() {
   return {
     createBoard: createBoard,
     _gameBoard: _gameBoard,
+    checkGameOver: checkGameOver,
   }
 }))();
 Gameboard.createBoard();
