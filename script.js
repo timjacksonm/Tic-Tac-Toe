@@ -4,7 +4,7 @@ const playerFactory = (name, symbol, turn) => {
   getTurn = turn;
   return {name, symbol, turn};
 };
-const myModule =((function() {
+const Gameboard =((function() {
   'use strict';
   const selectMain = document.querySelector('main');
 
@@ -42,16 +42,62 @@ const myModule =((function() {
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
     
     function addEventListeners() {
-      Box1.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();});
-      Box2.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();});
-      Box3.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
-      Box4.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
-      Box5.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
-      Box6.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
-      Box7.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
-      Box8.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();}); 
-      Box9.addEventListener('click', (e) => {_boxNum = e.target.attributes[0].value; _choice();});  
-    }
+      let Box1ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box1.removeEventListener('click', Box1ClickEvent);
+      };
+      let Box2ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box2.removeEventListener('click', Box2ClickEvent);
+      };
+      let Box3ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box3.removeEventListener('click', Box3ClickEvent);
+      };
+      let Box4ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box4.removeEventListener('click', Box4ClickEvent);
+      };
+      let Box5ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box5.removeEventListener('click', Box5ClickEvent);
+      };
+      let Box6ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box6.removeEventListener('click', Box6ClickEvent);
+      };
+      let Box7ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box7.removeEventListener('click', Box7ClickEvent);
+      };
+      let Box8ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box8.removeEventListener('click', Box8ClickEvent);
+      };
+      let Box9ClickEvent = (e) => {
+        _boxNum = e.target.attributes[0].value;
+        _choice();
+        Box9.removeEventListener('click', Box9ClickEvent);
+      };
+
+      Box1.addEventListener('click', Box1ClickEvent);
+      Box2.addEventListener('click', Box2ClickEvent);
+      Box3.addEventListener('click', Box3ClickEvent);
+      Box4.addEventListener('click', Box4ClickEvent);
+      Box5.addEventListener('click', Box5ClickEvent);
+      Box6.addEventListener('click', Box6ClickEvent);
+      Box7.addEventListener('click', Box7ClickEvent);
+      Box8.addEventListener('click', Box8ClickEvent);
+      Box9.addEventListener('click', Box9ClickEvent);
+    };
 
     addEventListeners();
   };
@@ -60,8 +106,8 @@ const myModule =((function() {
     let symbol = '';
 
     function checkTurn(_playerOneTurn, _playerTwoTurn) {
-      let symbolX = myModule._gameBoard.filter( string => string.includes("X"))
-      let symbolO = myModule._gameBoard.filter(string => string.includes("O"));
+      let symbolX = _gameBoard.filter( string => string.includes("X"))
+      let symbolO = _gameBoard.filter(string => string.includes("O"));
       let symbolCountX= symbolX.length;
       let symbolCountO = symbolO.length;
 
@@ -173,3 +219,4 @@ const myModule =((function() {
     _gameBoard: _gameBoard,
   }
 }))();
+Gameboard.createBoard();
