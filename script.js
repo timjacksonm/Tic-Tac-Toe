@@ -1,6 +1,3 @@
-// let _gameBoard = [];
-// let _displayController = [];
-
 const myModule =((function() {
   'use strict';
   const selectMain = document.querySelector('main');
@@ -40,102 +37,82 @@ const myModule =((function() {
     const O = document.createElement('img');
     O.setAttribute('src', "graphics/GoldTypography0.svg");
 
-    const boxNumber = boxNum;
-
     if(player == 'playerOne') {
-    switch (boxNumber) {
-      case 'Box1':
-        _displayController[0].appendChild(X);
-        _displayController[0].setAttribute('value', 'X');
-        _gameBoard[0] = 'X';
-        break;
-      case 'Box2':
-        _displayController[1].appendChild(X);
-        _displayController[1].setAttribute('value', 'X');
-        _gameBoard[1] = 'X';
-        break;
-      case 'Box3':
-        _displayController[2].appendChild(X);
-        _displayController[2].setAttribute('value', 'X');
-        _gameBoard[2] = 'X';
-        break;
-      case 'Box4':
-        _displayController[3].appendChild(X);
-        _displayController[3].setAttribute('value', 'X');
-        _gameBoard[3] = 'X';
-        break;
-      case 'Box5':
-        _displayController[4].appendChild(X);
-        _displayController[4].setAttribute('value', 'X');
-        _gameBoard[4] = 'X';
-        break;
-      case 'Box6':
-        _displayController[5].appendChild(X);
-        _displayController[5].setAttribute('value', 'X');
-        _gameBoard[5] = 'X';
-        break;
-      case 'Box7':
-        _displayController[6].appendChild(X);
-        _displayController[6].setAttribute('value', 'X');
-        _gameBoard[6] = 'X';
-        break;
-      case 'Box8':
-        _displayController[7].appendChild(X);
-        _displayController[7].setAttribute('value', 'X');
-        _gameBoard[7] = 'X';
-        break;
-      case 'Box9':
-        _displayController[8].appendChild(X);
-        _displayController[8].setAttribute('value', 'X');
-        _gameBoard[8] = 'X';
-        break;
-      default:
-        }
+      switch (boxNum) {
+        case 'Box1':
+          _displayController[0].appendChild(X);
+          _gameBoard[0] = 'X';
+          break;
+        case 'Box2':
+          _displayController[1].appendChild(X);
+          _gameBoard[1] = 'X';
+          break;
+        case 'Box3':
+          _displayController[2].appendChild(X);
+          _gameBoard[2] = 'X';
+          break;
+        case 'Box4':
+          _displayController[3].appendChild(X);
+          _gameBoard[3] = 'X';
+          break;
+        case 'Box5':
+          _displayController[4].appendChild(X);
+          _gameBoard[4] = 'X';
+          break;
+        case 'Box6':
+          _displayController[5].appendChild(X);
+          _gameBoard[5] = 'X';
+          break;
+        case 'Box7':
+          _displayController[6].appendChild(X);
+          _gameBoard[6] = 'X';
+          break;
+        case 'Box8':
+          _displayController[7].appendChild(X);
+          _gameBoard[7] = 'X';
+          break;
+        case 'Box9':
+          _displayController[8].appendChild(X);
+          _gameBoard[8] = 'X';
+          break;
+        default:
+          }
     }else if(player == 'playerTwo') {
-      switch (boxNumber) {
+      switch (boxNum) {
         case 'Box1':
           _displayController[0].appendChild(O);
-          _displayController[0].setAttribute('value', 'O');
           _gameBoard[0] = 'O';
           break;
         case 'Box2':
           _displayController[1].appendChild(O);
-          _displayController[1].setAttribute('value', 'O');
           _gameBoard[1] = 'O';
           break;
         case 'Box3':
           _displayController[2].appendChild(O);
-          _displayController[2].setAttribute('value', 'O');
           _gameBoard[2] = 'O';
           break;
         case 'Box4':
           _displayController[3].appendChild(O);
-          _displayController[3].setAttribute('value', 'O');
           _gameBoard[3] = 'O';
           break;
         case 'Box5':
           _displayController[4].appendChild(O);
-          _displayController[4].setAttribute('value', 'O');
           _gameBoard[4] = 'O';
           break;
         case 'Box6':
           _displayController[5].appendChild(O);
-          _displayController[5].setAttribute('value', 'O');
           _gameBoard[5] = 'O';
           break;
         case 'Box7':
           _displayController[6].appendChild(O);
-          _displayController[6].setAttribute('value', 'O');
           _gameBoard[6] = 'O';
           break;
         case 'Box8':
           _displayController[7].appendChild(O);
-          _displayController[7].setAttribute('value', 'O');
           _gameBoard[7] = 'O';
           break;
         case 'Box9':
           _displayController[8].appendChild(O);
-          _displayController[8].setAttribute('value', 'O');
           _gameBoard[8] = 'O';
           break;
         default:
