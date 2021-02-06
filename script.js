@@ -7,6 +7,7 @@ const playerFactory = (name, symbol, turn) => {
 const Gameboard = ((function() {
   'use strict';
   const _selectMain = document.querySelector('main');
+  const _selectNav = document.querySelector('nav');
 
   let _gameBoard = ["", "", "", "", "", "", "", "", ""];
   let _displayController = [];
@@ -263,88 +264,89 @@ const Gameboard = ((function() {
     if(_gameBoard.includes("X" || "O")) {
       if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX" || _gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "OOO") {
         if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "GameOver, " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "GameOver " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX" || _gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "OOO"){
         if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "GameOver, " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "GameOver " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX" || _gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "OOO") {
         if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX" || _gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "OOO") {
         if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX" || _gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "OOO") {
         if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX" || _gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "OOO") {
         if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX" || _gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "OOO") {
         if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX" || _gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "OOO") {
         if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX") {
-          console.log("GameOver, " + _playerOne.name + " You Win!");
+          _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
           return;
         }else {
-          console.log("GameOver " + _playerTwo.name + " Won this round! Try again!");
+          _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
           return;
         }
       }else if(_gameBoard.includes("")){
-        return console.log("Game stil ongoing");
+        console.log("Game stil ongoing");
+        return;
       }else {
-        console.log(_playerOne.name + " vs " + _playerTwo.name + " Result in a Tie!");
+        _selectNav.textContent = _playerOne.name + " vs " + _playerTwo.name + " Result in a Tie!";
         _addOrRemoveEvents();
         return;
       };
