@@ -31,13 +31,13 @@ const myModule =((function() {
     Box9.setAttribute('class', 'bot right');
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
   };
-  const choice = (player, boxNum) => {
+  const choice = (symbol, boxNum) => {
     const X = document.createElement('img');
     X.setAttribute('src', "graphics/GoldTypographyX.svg");
     const O = document.createElement('img');
     O.setAttribute('src', "graphics/GoldTypography0.svg");
 
-    if(player == 'playerOne') {
+    if(symbol == 'X') {
       switch (boxNum) {
         case 'Box1':
           _displayController[0].appendChild(X);
@@ -126,7 +126,11 @@ const myModule =((function() {
     _gameBoard: _gameBoard,
   }
 }))();
-const playerFactory = (playerOne, playerTwo) => {
-    const sayHello = () => console.log('hello');
-    return { playerOne, playerTwo, sayHello };
+const playerFactory = (name, symbol, box) => {
+    getName = name;
+    getSymbol = symbol;
+    getBoxNum = box;
+    return {name, symbol, box};
 };
+Object.assign(playerFactory, myModule);
+const playerOne = playerFactory("tim", 'X', 'Box4');
