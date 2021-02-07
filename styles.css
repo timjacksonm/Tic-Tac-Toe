@@ -126,12 +126,12 @@ label {
   background-color: #0f8b8d;
   border-radius: 4px;
   letter-spacing: 2px;
-  transition: opacity 1.5s;
+  transition: opacity 0.7s;
 }
 .startGameForm button:hover {
   cursor: pointer;
   outline: 2px groove #eebd6b;
-  transition: opacity 1.5s;
+  transition: opacity 0.7s;
   background-color: #04082e;
   color: #eebd6b;
 }
@@ -149,7 +149,7 @@ label {
   border: 2px solid #0f8b8d;
   border-radius: 4px;
   background-color: #3355dd;
-  transition: opacity 1.5s;
+  transition: opacity 0.7s;
   color: #eebd6b;
 }
 

@@ -133,13 +133,13 @@ const Gameboard = ((function() {
       setTimeout(function() {
         onePlayerButton.remove();
         twoPlayerButton.remove();
-      }, 1500);
+      }, 700);
     }
     e.preventDefault();
     setTimeout(function wait(){
       //wait 3 seconds before transition
       openForm();
-    }, 1500);
+    }, 700);
   };
   const onePlayerButton = document.getElementById('onePlayerSelect');
   const twoPlayerButton = document.getElementById('twoPlayerSelect');
