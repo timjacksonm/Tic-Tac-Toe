@@ -37,6 +37,34 @@ main div {
   font-family: "Times New Roman", Times, serif;
   border-top: 1.5px solid #0f8b8d;
 }
+.startGameForm {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #447695;
+  border-top: 2px solid #0f8b8d;
+  border-bottom: 2px solid #0f8b8d;
+}
+.startGameForm button {
+  outline: 2px groove #000000;
+  border: none;
+  margin: 0 0 20px;
+  min-width: 38vh;
+  min-height: 5vh;
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #0f8b8d;
+  border-radius: 4px;
+}
+.startGameForm button:hover {
+  color: #04082e;
+  cursor: pointer;
+  background-color: #3355dd;
+  outline: 2px groove #eebd6b;
+}
 .gameBoard {
   flex: 1;
   padding: 12% 9%;
@@ -83,6 +111,11 @@ main div {
   main img {
     width: 9vh;
     height: 9vh;
+  }
+  .startGameForm button {
+    min-width: 40vh;
+    min-height: 5vh;
+    font-size: 20px;
   }
   .header {
     font-size: 30px;

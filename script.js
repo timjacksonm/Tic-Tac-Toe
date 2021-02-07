@@ -96,6 +96,7 @@ const Gameboard = ((function() {
     _Box8.setAttribute('class', 'bot');
     _Box9.setAttribute('class', 'bot right');
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
+    _selectMain.setAttribute('class', 'gameBoard');
     _addOrRemoveEvents();
   };
   function _addOrRemoveEvents() {
@@ -356,4 +357,4 @@ const Gameboard = ((function() {
     createBoard: createBoard,
   }
 }))();
-Gameboard.createBoard();
+// Gameboard.createBoard();
