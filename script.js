@@ -388,80 +388,144 @@ const Gameboard = ((function() {
         if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX") {
           _selectNav.textContent = "GameOver, " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[0].setAttribute('class', 'winBackground');
+          _displayController[1].setAttribute('class', 'winBackground');
+          _displayController[2].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "GameOver " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[0].setAttribute('class', 'winBackground');
+          _displayController[1].setAttribute('class', 'winBackground');
+          _displayController[2].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX" || _gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "OOO"){
         if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX") {
           _selectNav.textContent = "GameOver, " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[3].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[5].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "GameOver " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[3].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[5].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX" || _gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "OOO") {
         if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[6].setAttribute('class', 'winBackground');
+          _displayController[7].setAttribute('class', 'winBackground');
+          _displayController[8].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[6].setAttribute('class', 'winBackground');
+          _displayController[7].setAttribute('class', 'winBackground');
+          _displayController[8].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX" || _gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "OOO") {
         if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[0].setAttribute('class', 'winBackground');
+          _displayController[3].setAttribute('class', 'winBackground');
+          _displayController[6].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[0].setAttribute('class', 'winBackground');
+          _displayController[3].setAttribute('class', 'winBackground');
+          _displayController[6].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX" || _gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "OOO") {
         if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[1].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[7].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[1].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[7].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX" || _gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "OOO") {
         if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[2].setAttribute('class', 'winBackground');
+          _displayController[5].setAttribute('class', 'winBackground');
+          _displayController[8].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[2].setAttribute('class', 'winBackground');
+          _displayController[5].setAttribute('class', 'winBackground');
+          _displayController[8].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX" || _gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "OOO") {
         if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[0].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[8].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[0].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[8].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX" || _gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "OOO") {
         if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
+          _displayController[6].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[2].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
+          _displayController[6].setAttribute('class', 'winBackground');
+          _displayController[4].setAttribute('class', 'winBackground');
+          _displayController[2].setAttribute('class', 'winBackground');
+          _selectNav.style.backgroundColor = 'maroon';
           return;
         }
       }else if(_gameBoard.includes("")){
@@ -470,6 +534,7 @@ const Gameboard = ((function() {
       }else {
         _selectNav.textContent = _playerOne.name + " vs " + _playerTwo.name + " Result in a Tie!";
         _addOrRemoveEvents();
+        _selectNav.style.backgroundColor = 'darkslategrey';
         return;
       };
     };
