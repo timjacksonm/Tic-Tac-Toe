@@ -74,9 +74,8 @@ const Gameboard = ((function() {
     function openForm() {
       const createSpan = document.createElement('span');
       const createH2 = document.createElement('h2');
-      const createLabel = document.createElement('label');
-      const createSelect = document.createElement('select');
       const createButton = document.createElement('button');
+      const createDiv = document.createElement('div');
 
       _selectMain.firstElementChild.appendChild(createSpan);
       createSpan.setAttribute('class', 'formBox fadeIn');
@@ -95,15 +94,32 @@ const Gameboard = ((function() {
       const textP3 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
       textP3.textContent = "Which player should go first?";
 
-      _selectMain.querySelector('span').appendChild(createLabel);
-      createLabel.setAttribute('for', 'turnChoice');
-      _selectMain.querySelector('label').appendChild(createSelect);
-      createSelect.setAttribute('name', 'turnChoice');
+      _selectMain.querySelector('span').appendChild(createDiv);
+      createDiv.style.display = 'flex';
 
-      const op1 = _selectMain.querySelector('select').appendChild(document.createElement('option'));
-      op1.textContent = "Player 1";
-      const op2 = _selectMain.querySelector('select').appendChild(document.createElement('option'));
-      op2.textContent = "Player 2";
+      const op1 = _selectMain.querySelector('div').appendChild(document.createElement('input'));
+      op1.setAttribute('id', 'turnChoice1');
+      op1.setAttribute('class', 'radio_input');
+      op1.setAttribute('name', 'firstChoice');
+      op1.setAttribute('type', 'radio');
+      op1.setAttribute('value','Player 2');
+
+      const label1 = _selectMain.querySelector('div').appendChild(document.createElement('label'));
+      label1.setAttribute('for', 'turnChoice1');
+      label1.setAttribute('id', 'label1');
+      label1.textContent = 'Player 1';
+
+      const op2 = _selectMain.querySelector('div').appendChild(document.createElement('input'));
+      op2.setAttribute('id', 'turnChoice2');
+      op2.setAttribute('class', 'radio_input');
+      op2.setAttribute('name', 'firstChoice');
+      op2.setAttribute('type', 'radio');
+      op2.setAttribute('value','Player 2');
+
+      const label2 = _selectMain.querySelector('div').appendChild(document.createElement('label'));
+      label2.setAttribute('for', 'turnChoice2');
+      label2.setAttribute('id', 'label2');
+      label2.textContent = 'Player 2';
 
       _selectMain.querySelector('span').appendChild(createButton);
       createButton.setAttribute('id', 'startGameButton')

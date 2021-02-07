@@ -13,10 +13,11 @@ main img {
   align-self: center;
   flex: 1;
 }
-main div {
+/* Need to update once GameBoard is shown */
+/* main div {
   display: flex;
   flex: 1;
-}
+} */
 p {
   margin: 10px 0 4px;
   font-size: 16px;
@@ -38,17 +39,49 @@ input {
 }
 input:not(textarea) {
   line-height: 1;
-  height: 2.25em;
+  height: 36px;
 }
 input:focus {
   border-color: #000000;
   box-shadow: 0 0 0 3px #eebd6b;
   outline: 3px solid transparent;
 }
+label {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 20px;
+}
 #startGameButton {
   margin: 5%;
-  min-width: 30vh;
+  min-width: 33vh;
   min-height: 5vh;
+}
+input[type="radio"] {
+  display: none;
+  margin: 10px;
+}
+input[type="radio"] + label {
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 50px;
+  height: 15px;
+  margin: 5px;
+  padding: 4px 12px;
+  text-align: center;
+  background-color: #0f8b8d;
+  color: #ffffff;
+}
+input[type="radio"]:checked + label {
+  background-image: none;
+  background-color: #04082e;
+  color: #eebd6b;
+  outline: 2px groove #eebd6b;
+}
+label {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 .header {
   padding: 3em 1em;
@@ -193,6 +226,11 @@ input:focus {
   span h2 {
     font-size: 28px;
   }
+  input[type="radio"] + label {
+    font-size: 16px;
+    width: 70px;
+    height: 20px;
+  }
   .formBox {
     min-width: 48vh;
     min-height: 40vh;
@@ -218,6 +256,11 @@ input:focus {
 }
 /* Large devices (ipads / laptops etc) */
 @media (min-width: 1025px) {
+  input[type="radio"] + label {
+    font-size: 18px;
+    width: 80px;
+    height: 28px;
+  }
   .formBox {
     min-width: 60vh;
     min-height: 40vh;
