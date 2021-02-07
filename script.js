@@ -71,15 +71,59 @@ const Gameboard = ((function() {
     Box9.removeEventListener('click', _Box9ClickEvent);
   };
   const openSettings = (e) => {
+    function openForm() {
+      const createSpan = document.createElement('span');
+      const createH2 = document.createElement('h2');
+      const createLabel = document.createElement('label');
+      const createSelect = document.createElement('select');
+      const createButton = document.createElement('button');
+
+      _selectMain.firstElementChild.appendChild(createSpan);
+      createSpan.setAttribute('class', 'formBox fadeIn');
+     
+      _selectMain.querySelector('span').appendChild(createH2);
+      createH2.textContent = "You chose a 2 Player Game";
+    
+      const textP1 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
+      textP1.textContent = "Player 1 Name?";
+      _selectMain.querySelector('span').appendChild(document.createElement('input'));
+
+      const textP2 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
+      textP2.textContent = "Player 2 Name?";
+      _selectMain.querySelector('span').appendChild(document.createElement('input'));
+
+      const textP3 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
+      textP3.textContent = "Which player should go first?";
+
+      _selectMain.querySelector('span').appendChild(createLabel);
+      createLabel.setAttribute('for', 'turnChoice');
+      _selectMain.querySelector('label').appendChild(createSelect);
+      createSelect.setAttribute('name', 'turnChoice');
+
+      const op1 = _selectMain.querySelector('select').appendChild(document.createElement('option'));
+      op1.textContent = "Player 1";
+      const op2 = _selectMain.querySelector('select').appendChild(document.createElement('option'));
+      op2.textContent = "Player 2";
+
+      _selectMain.querySelector('span').appendChild(createButton);
+      createButton.setAttribute('id', 'startGameButton')
+      createButton.textContent = "Start Game!";
+    }
+
+
     if(e.target.textContent == '2 Player') {
       twoPlayerButton.style.opacity = '0';
       onePlayerButton.style.opacity = '0';
-      setTimeout(function(){
+      setTimeout(function() {
         onePlayerButton.remove();
         twoPlayerButton.remove();
       }, 1500);
     }
     e.preventDefault();
+    setTimeout(function wait(){
+      //wait 3 seconds before transition
+      openForm();
+    }, 1500);
   };
   const onePlayerButton = document.getElementById('onePlayerSelect');
   const twoPlayerButton = document.getElementById('twoPlayerSelect');

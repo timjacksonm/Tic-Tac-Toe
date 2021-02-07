@@ -66,6 +66,47 @@ main div {
   cursor: pointer;
   background-color: #3355dd;
   outline: 2px groove #eebd6b;
+  transition: opacity 1.5s;
+}
+.formBox {
+  flex: 1;
+  display: flex;
+  min-width: 45vh;
+  min-height: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  border: 2px solid #3355dd;
+  border-radius: 4px;
+  background-color: #0f8b8d;
+  transition: opacity 1.5s;
+}
+.fadeIn {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1.5s;
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+p {
+  margin: 10px 0 2px;
+  font-size: 16px;
+}
+#startGameButton {
+  margin: 5%;
+  min-width: 30vh;
+  min-height: 5vh;
 }
 .gameBoard {
   flex: 1;
