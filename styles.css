@@ -59,6 +59,7 @@ main div {
   background-color: #0f8b8d;
   border-radius: 4px;
   letter-spacing: 2px;
+  transition: opacity 1.5s;
 }
 .startGameForm button:hover {
   color: #04082e;

@@ -70,7 +70,22 @@ const Gameboard = ((function() {
     _choice();
     Box9.removeEventListener('click', _Box9ClickEvent);
   };
-  
+  const openSettings = (e) => {
+    if(e.target.textContent == '2 Player') {
+      twoPlayerButton.style.opacity = '0';
+      onePlayerButton.style.opacity = '0';
+      setTimeout(function(){
+        onePlayerButton.remove();
+        twoPlayerButton.remove();
+      }, 1500);
+    }
+    e.preventDefault();
+  };
+  const onePlayerButton = document.getElementById('onePlayerSelect');
+  const twoPlayerButton = document.getElementById('twoPlayerSelect');
+  onePlayerButton.addEventListener('click', openSettings);
+  twoPlayerButton.addEventListener('click', openSettings);
+
   function createBoard() {
     for (let i = 1; i < 10; i++) {
       const createBoard = document.createElement('div');
@@ -357,4 +372,3 @@ const Gameboard = ((function() {
     createBoard: createBoard,
   }
 }))();
-// Gameboard.createBoard();
