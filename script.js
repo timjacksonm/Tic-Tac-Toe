@@ -4,6 +4,7 @@ const playerFactory = (name, symbol, turn) => {
   getTurn = turn;
   return {name, symbol, turn};
 };
+let _gameBoard = ["", "", "", "", "", "", "", "", ""];
 const Gameboard = ((function() {
   'use strict';
   const _selectMain = document.querySelector('main');
@@ -11,7 +12,7 @@ const Gameboard = ((function() {
 
   let _playerOne = playerFactory("", '', '');
   let _playerTwo = playerFactory("", '', '');
-  let _gameBoard = ["", "", "", "", "", "", "", "", ""];
+  // let _gameBoard = ["", "", "", "", "", "", "", "", ""];
   let _displayController = [];
   let _boxNum = '';
   let _gameBoardEventToggle = 'off'
@@ -257,8 +258,8 @@ const Gameboard = ((function() {
       let symbolO = _gameBoard.filter(string => string.includes("O"));
       let symbolCountX= symbolX.length;
       let symbolCountO = symbolO.length;
-
-      if(_gameBoard.includes("X" || "O")) {
+      console.log(_gameBoard)
+      if(_gameBoard.includes("X") || _gameBoard.includes("O")) {
         if (symbolCountX > symbolCountO) {
           symbol = "O";
           return;
