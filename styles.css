@@ -13,12 +13,7 @@ main img {
   align-self: center;
   flex: 1;
 }
-/* Need to update once GameBoard is shown */
-/* main div {
-  display: flex;
-  flex: 1;
-} */
-p {
+p {`
   margin: 10px 0 4px;
   font-size: 16px;
 }
@@ -83,6 +78,12 @@ label {
   display: flex !important;
   justify-content: center;
   align-items: center;
+}
+form {
+  transition: opacity 0.7s;
+}
+main {
+  background-color: #447695;
 }
 .header {
   padding: 3em 1em;
@@ -149,16 +150,22 @@ label {
   border: 2px solid #0f8b8d;
   border-radius: 4px;
   background-color: #3355dd;
-  transition: opacity 0.7s;
   color: #eebd6b;
+  transition: opacity 0.7s;
 }
-
 .fadeIn {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 1.5s;
+}
+.fadeInBoard {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
 }
 @keyframes fadeInOpacity {
   0% {
@@ -179,12 +186,17 @@ label {
   border-bottom: 2px solid #0f8b8d;
 }
 .gameBoard div {
+  display: flex;
+  flex: 1;
   min-height: 3em;
   min-width: 3em;
   outline: 1px groove #3355dd;
   background-color: #000000;
   text-align: center;
 }
+/* .divTransition {
+  transition: opacity 0.7s;
+} */
 .top {
   border-top: 1.5px solid #0f8b8d;
 }

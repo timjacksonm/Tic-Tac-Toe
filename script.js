@@ -9,6 +9,8 @@ const Gameboard = ((function() {
   const _selectMain = document.querySelector('main');
   const _selectNav = document.querySelector('nav');
 
+  let _playerOne = playerFactory("", '', '');
+  let _playerTwo = playerFactory("", '', '');
   let _gameBoard = ["", "", "", "", "", "", "", "", ""];
   let _displayController = [];
   let _boxNum = '';
@@ -22,8 +24,6 @@ const Gameboard = ((function() {
   let _Box7 = '';
   let _Box8 = '';
   let _Box9 = '';
-  const _playerOne = playerFactory("Tim", 'X', 'First');
-  const _playerTwo = playerFactory("Jake", 'O', 'Second');
 
   let _Box1ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
@@ -85,11 +85,13 @@ const Gameboard = ((function() {
     
       const textP1 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
       textP1.textContent = "Player 1 Name?";
-      _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      const nameInput1 = _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      nameInput1.setAttribute('name', 'player1Name');
 
       const textP2 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
       textP2.textContent = "Player 2 Name?";
-      _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      const nameInput2 = _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      nameInput2.setAttribute('name', 'player2Name');
 
       const textP3 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
       textP3.textContent = "Which player should go first?";
@@ -102,7 +104,7 @@ const Gameboard = ((function() {
       op1.setAttribute('class', 'radio_input');
       op1.setAttribute('name', 'firstChoice');
       op1.setAttribute('type', 'radio');
-      op1.setAttribute('value','Player 2');
+      op1.setAttribute('value','Player 1');
 
       const label1 = _selectMain.querySelector('div').appendChild(document.createElement('label'));
       label1.setAttribute('for', 'turnChoice1');
@@ -133,19 +135,61 @@ const Gameboard = ((function() {
       setTimeout(function() {
         onePlayerButton.remove();
         twoPlayerButton.remove();
+        _selectNav.replaceChildren();
       }, 700);
     }
     e.preventDefault();
     setTimeout(function wait(){
-      //wait 3 seconds before transition
+      //0.7 seconds for transition fadeout
       openForm();
+      formButtonEvent();
     }, 700);
   };
   const onePlayerButton = document.getElementById('onePlayerSelect');
   const twoPlayerButton = document.getElementById('twoPlayerSelect');
+  //first screen menu buttons -eventListeners
   onePlayerButton.addEventListener('click', openSettings);
   twoPlayerButton.addEventListener('click', openSettings);
 
+  function formButtonEvent() {
+    //had to add to funciton scope so this wouldn't try and run my variables until called
+    const startGameButton = document.getElementById('startGameButton');
+    const form = document.getElementById('formContainer');
+
+    startGameButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let p1Turn = '';
+    let p2Turn = '';
+
+    switch (form.firstChoice.value) {
+      case "Player 1":
+        p1Turn = 'First';
+        p2Turn = 'Second';
+        break;
+      case "Player 2":
+        p1Turn = 'Second';
+        p2Turn = 'First';
+        break;
+      default:
+        console.log("something went wrong");
+        break;
+    };
+
+    _playerOne = playerFactory(`${form.player1Name.value}`, 'X', `${p1Turn}`);
+    _playerTwo = playerFactory(`${form.player2Name.value}`, 'O', `${p2Turn}`);
+    form.style.opacity = '0';
+
+    setTimeout(function() {
+       //0.7 seconds for transition fadeout of form
+      _selectMain.replaceChildren();
+    }, 700);
+    setTimeout(function wait(){
+      //wait 0.7 seconds for fadeout to end. Then run code.
+      createBoard();
+    }, 700);
+  });
+};
   function createBoard() {
     for (let i = 1; i < 10; i++) {
       const createBoard = document.createElement('div');
@@ -161,17 +205,18 @@ const Gameboard = ((function() {
     _Box7 = document.getElementById('Box7');
     _Box8 = document.getElementById('Box8');
     _Box9 = document.getElementById('Box9');
-    _Box1.setAttribute('class', 'top left');
-    _Box2.setAttribute('class', 'top');
-    _Box3.setAttribute('class', 'top right');
-    _Box4.setAttribute('class', 'left');
-    _Box5.setAttribute('class', 'center');
-    _Box6.setAttribute('class', 'right');
-    _Box7.setAttribute('class', 'bot left');
-    _Box8.setAttribute('class', 'bot');
-    _Box9.setAttribute('class', 'bot right');
+    _Box1.setAttribute('class', 'top left fadeInBoard');
+    _Box2.setAttribute('class', 'top fadeInBoard');
+    _Box3.setAttribute('class', 'top right fadeInBoard');
+    _Box4.setAttribute('class', 'left fadeInBoard');
+    _Box5.setAttribute('class', 'center fadeInBoard');
+    _Box6.setAttribute('class', 'right fadeInBoard');
+    _Box7.setAttribute('class', 'bot left fadeInBoard');
+    _Box8.setAttribute('class', 'bot fadeInBoard');
+    _Box9.setAttribute('class', 'bot right fadeInBoard');
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
     _selectMain.setAttribute('class', 'gameBoard');
+  
     _addOrRemoveEvents();
   };
   function _addOrRemoveEvents() {
@@ -429,6 +474,6 @@ const Gameboard = ((function() {
     };
   };
   return {
-    createBoard: createBoard,
+    //nothing currently...
   }
 }))();
