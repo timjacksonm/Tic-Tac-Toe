@@ -87,11 +87,13 @@ const Gameboard = ((function() {
       const textP1 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
       textP1.textContent = "Player 1 Name?";
       const nameInput1 = _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      nameInput1.setAttribute('autocomplete', 'off');
       nameInput1.setAttribute('name', 'player1Name');
 
       const textP2 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
       textP2.textContent = "Player 2 Name?";
       const nameInput2 = _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      nameInput2.setAttribute('autocomplete', 'off');
       nameInput2.setAttribute('name', 'player2Name');
 
       const textP3 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
@@ -258,7 +260,7 @@ const Gameboard = ((function() {
       let symbolO = _gameBoard.filter(string => string.includes("O"));
       let symbolCountX= symbolX.length;
       let symbolCountO = symbolO.length;
-      console.log(_gameBoard)
+      
       if(_gameBoard.includes("X") || _gameBoard.includes("O")) {
         if (symbolCountX > symbolCountO) {
           symbol = "O";
@@ -529,7 +531,7 @@ const Gameboard = ((function() {
           return;
         }
       }else if(_gameBoard.includes("")){
-        console.log("Game stil ongoing");
+        // console.log("Game stil ongoing");
         return;
       }else {
         _selectNav.textContent = _playerOne.name + " vs " + _playerTwo.name + " Result in a Tie!";
