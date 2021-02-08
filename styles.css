@@ -193,26 +193,6 @@ p {
 main {
   background-color: #447695;
 }
-.winBackground {
-  /* Do nothing unless 1025+ width */
-}
-@keyframes colorchange {
-  0% {
-    background-color: #996633;
-  }
-  25% {
-    background-color: #339933;
-  }
-  50% {
-    background-color: #336699;
-  }
-  75% {
-    background-color: #993399;
-  }
-  100% {
-    background-color: #996433;
-  }
-}
 
 /* Really Small width device . ie galaxy fold */
 @media (max-width: 280px) {
@@ -284,6 +264,23 @@ main {
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+  }
+  @keyframes colorchange {
+    0% {
+      background-color: #996633;
+    }
+    25% {
+      background-color: #339933;
+    }
+    50% {
+      background-color: #336699;
+    }
+    75% {
+      background-color: #993399;
+    }
+    100% {
+      background-color: #996433;
+    }
   }
   .fadeInBoard {
     opacity: 1;
