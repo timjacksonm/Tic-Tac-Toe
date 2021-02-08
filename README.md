@@ -6,11 +6,11 @@
 - [✔️] Set up your HTML and write a javaScript funciton that will render the contents of the gameBoard array to the webpage.
 - [✔️] Build the functions that allow players to add marks to a specific spot on the board, then tie it to the DOM.
 - [✔️] Build the logic that checks for when the game is over! Should check for 3-in-a-row and a tie.
-- [] Clean up the interface to allow players to put in their names, include a button to start/restart the game and add a display element that congratulates the winning player!
+- [✔️] Clean up the interface to allow players to put in their names, include a button to start/restart the game and add a display element that congratulates the winning player!
 
 **Optional Extra Credit**
 
-- [] learn and apply how to add transition effects.
+- [✔️] learn and apply how to add transition effects.
 - [] create an AI so that a player can play against the computer!
 - [] Once AI is working, make it unbeatable!
 - [] add a light/dark mode button to the site.

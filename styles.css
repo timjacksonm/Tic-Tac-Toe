@@ -60,6 +60,7 @@ body {
 }
 .gameBoard {
   flex: 1;
+  justify-content: center;
   padding: 12% 9%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -70,7 +71,6 @@ body {
 }
 .gameBoard div {
   display: flex;
-  flex: 1;
   min-height: 3em;
   min-width: 3em;
   outline: 1px groove #3355dd;
