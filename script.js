@@ -128,6 +128,7 @@ const Gameboard = ((function() {
 
       _selectMain.querySelector('span').appendChild(createButton);
       createButton.setAttribute('id', 'startGameButton')
+      createButton.setAttribute('type', 'submit')
       createButton.textContent = "Start Game!";
     }
 
@@ -145,7 +146,7 @@ const Gameboard = ((function() {
     setTimeout(function wait(){
       //0.7 seconds for transition fadeout
       openForm();
-      formButtonEvent();
+      formButtonEvent(); //adds event listener to Start Game Button on form.
     }, 700);
   };
   const onePlayerButton = document.getElementById('onePlayerSelect');
@@ -161,6 +162,16 @@ const Gameboard = ((function() {
 
     startGameButton.addEventListener('click', (event) => {
     event.preventDefault();
+    
+    if (form.player1Name.value == '' || form.player2Name.value ==  '') {
+      alert("Names must be filled out");
+      form.player1Name.style.border = "red 1px solid";
+      form.player2Name.style.border = "red 1px solid";
+      return false; 
+    }else if(form.firstChoice.value == '') {
+      alert("Please select whos turn is first.");
+      return false;
+    }
 
     let p1Turn = '';
     let p2Turn = '';
