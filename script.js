@@ -100,11 +100,10 @@ const Gameboard = ((function() {
       textP3.textContent = "Which player should go first?";
 
       _selectMain.querySelector('span').appendChild(createDiv);
-      createDiv.style.display = 'flex';
+      createDiv.setAttribute('class', 'radioContainer');
 
       const op1 = _selectMain.querySelector('div').appendChild(document.createElement('input'));
       op1.setAttribute('id', 'turnChoice1');
-      op1.setAttribute('class', 'radio_input');
       op1.setAttribute('name', 'firstChoice');
       op1.setAttribute('type', 'radio');
       op1.setAttribute('value','Player 1');
@@ -116,7 +115,6 @@ const Gameboard = ((function() {
 
       const op2 = _selectMain.querySelector('div').appendChild(document.createElement('input'));
       op2.setAttribute('id', 'turnChoice2');
-      op2.setAttribute('class', 'radio_input');
       op2.setAttribute('name', 'firstChoice');
       op2.setAttribute('type', 'radio');
       op2.setAttribute('value','Player 2');

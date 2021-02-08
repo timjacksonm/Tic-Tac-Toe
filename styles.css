@@ -5,82 +5,8 @@ body {
   flex-direction: column;
   height: 100vh;
 }
-main img {
-  margin: 0;
-  padding: 1px;
-  width: 8vh;
-  height: 8vh;
-  align-self: center;
-  flex: 1;
-}
-p {`
-  margin: 10px 0 4px;
-  font-size: 16px;
-}
-span h2 {
-  color: #000000;
-  font-size: 20px;
-}
-input {
-  box-sizing: border-box;
-  font-size: 16px;
-  font-size: max(16px, 1em);
-  font-family: inherit;
-  padding: 0.25em 0.5em 0.25em 0;
-  background-color: #fff;
-  border: 2px solid #000000;
-  border-radius: 4px;
-  text-align: center;
-}
-input:not(textarea) {
-  line-height: 1;
-  height: 36px;
-}
-input:focus {
-  border-color: #000000;
-  box-shadow: 0 0 0 3px #eebd6b;
-  outline: 3px solid transparent;
-}
-label {
-  color: #fff;
-  font-size: 16px;
-  margin-right: 20px;
-}
-#startGameButton {
-  margin: 5%;
-  min-width: 33vh;
-  min-height: 5vh;
-}
-input[type="radio"] {
-  display: none;
-  margin: 10px;
-}
-input[type="radio"] + label {
-  display: inline-block;
-  border-radius: 4px;
-  font-size: 14px;
-  width: 50px;
-  height: 15px;
-  margin: 5px;
-  padding: 4px 12px;
-  text-align: center;
-  background-color: #0f8b8d;
-  color: #ffffff;
-}
-input[type="radio"]:checked + label {
-  background-image: none;
-  background-color: #04082e;
-  color: #eebd6b;
-  outline: 2px groove #eebd6b;
-}
-label {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-}
-main {
-  background-color: #447695;
-}
+
+/* Game Title section | <header> */
 .header {
   padding: 3em 1em;
   text-align: center;
@@ -92,7 +18,8 @@ main {
   border-bottom: 1.5px solid #0f8b8d;
   border-top: 1.5px solid #0f8b8d;
 }
-.menu {
+/* Game Text Menu section | <nav> */
+.displayTextMenu {
   padding: 2em 1em;
   text-align: center;
   background-color: #3355dd;
@@ -101,7 +28,8 @@ main {
   font-family: "Times New Roman", Times, serif;
   border-top: 1.5px solid #0f8b8d;
 }
-.startGameForm {
+/* Game Content section | <main> */ /*- displays buttons / settings & Game Board */
+.gameContentMenu {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -110,7 +38,7 @@ main {
   border-top: 2px solid #0f8b8d;
   border-bottom: 2px solid #0f8b8d;
 }
-.startGameForm button {
+.gameContentMenu button {
   outline: 2px groove #000000;
   border: none;
   margin: 0 0 20px;
@@ -124,26 +52,10 @@ main {
   border-radius: 4px;
   letter-spacing: 2px;
 }
-.startGameForm button:hover {
+.gameContentMenu button:hover {
   cursor: pointer;
   outline: 2px groove #eebd6b;
   background-color: #04082e;
-  color: #eebd6b;
-}
-.formBox {
-  flex: 1;
-  display: flex;
-  min-width: 45vh;
-  min-height: 40vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-weight: bolder;
-  font-size: 14px;
-  font-family: "Times New Roman", Times, serif;
-  border: 2px solid #0f8b8d;
-  border-radius: 4px;
-  background-color: #3355dd;
   color: #eebd6b;
 }
 .gameBoard {
@@ -165,26 +77,13 @@ main {
   background-color: #000000;
   text-align: center;
 }
-.winBackground {
-  /* Do nothing unless 1025+ width */
-}
-@keyframes colorchange {
-  0%{
-    background-color: #996633;
-  }
-  25%{
-    background-color: #339933;
-  }
-  50%{
-    background-color: #336699;
-  }
-  75%{
-    background-color: #993399;
-  }
-  100%{
-    background-color: #996433;
-  }
-  
+.gameBoard img {
+  margin: 0;
+  padding: 1px;
+  width: 8vh;
+  height: 8vh;
+  align-self: center;
+  flex: 1;
 }
 .top {
   border-top: 1.5px solid #0f8b8d;
@@ -198,6 +97,82 @@ main {
 .right {
   border-right: 1.5px solid #0f8b8d;
 }
+/* Settings popup page child of gameContentMenu */
+.formBox {
+  flex: 1;
+  display: flex;
+  min-width: 45vh;
+  min-height: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  border: 2px solid #0f8b8d;
+  border-radius: 4px;
+  background-color: #3355dd;
+  color: #eebd6b;
+}
+.formBox h2 {
+  color: #000000;
+  font-size: 20px;
+}
+.formBox input {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em 0.25em 0;
+  background-color: #fff;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  text-align: center;
+}
+.formBox input:not(textarea) {
+  line-height: 1;
+  height: 36px;
+}
+.formBox input:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 3px #eebd6b;
+  outline: 3px solid transparent;
+}
+.formBox button {
+  margin: 5%;
+  min-width: 33vh;
+  min-height: 5vh;
+}
+.radioContainer {
+  display: flex;
+}
+.radioContainer input[type="radio"] {
+  display: none;
+  margin: 10px;
+}
+.radioContainer input[type="radio"] + label {
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 50px;
+  height: 15px;
+  margin: 5px;
+  padding: 4px 12px;
+  text-align: center;
+  background-color: #0f8b8d;
+  color: #ffffff;
+}
+.radioContainer input[type="radio"]:checked + label {
+  background-color: #04082e;
+  color: #eebd6b;
+  outline: 2px groove #eebd6b;
+}
+.radioContainer label {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+/* Footer section | <footer> */ /* includes signature */
 .footer {
   display: inline-flex;
   align-items: center;
@@ -210,6 +185,35 @@ main {
 .logo {
   padding-left: 10px;
 }
+/* end of main layout */
+p {
+  margin: 10px 0 4px;
+  font-size: 16px;
+}
+main {
+  background-color: #447695;
+}
+.winBackground {
+  /* Do nothing unless 1025+ width */
+}
+@keyframes colorchange {
+  0% {
+    background-color: #996633;
+  }
+  25% {
+    background-color: #339933;
+  }
+  50% {
+    background-color: #336699;
+  }
+  75% {
+    background-color: #993399;
+  }
+  100% {
+    background-color: #996433;
+  }
+}
+
 /* Really Small width device . ie galaxy fold */
 @media (max-width: 280px) {
   .formBox {
@@ -218,20 +222,20 @@ main {
 }
 /* Medium devices (tablets etc) */
 @media (min-width: 768px) {
-  main img {
+  .gameBoard img {
     width: 9vh;
     height: 9vh;
   }
   p {
     font-size: 24px;
   }
-  span h2 {
+  .formbox h2 {
     font-size: 28px;
   }
-  input {
+  .formBox input {
     font-size: 24px;
   }
-  input[type="radio"] + label {
+  .formBox input[type="radio"] + label {
     font-size: 16px;
     width: 70px;
     height: 20px;
@@ -241,7 +245,7 @@ main {
     min-height: 40vh;
     font-size: 14px;
   }
-  .startGameForm button {
+  .gameContentMenu button {
     min-width: 40vh;
     min-height: 5vh;
     font-size: 20px;
@@ -261,18 +265,18 @@ main {
 }
 /* Large devices (ipads / laptops etc) */
 @media (min-width: 1025px) {
-  form {
+  .formContainer {
     transition: opacity 0.7s;
   }
-  input[type="radio"] + label {
+  .formBox input[type="radio"] + label {
     font-size: 18px;
     width: 80px;
     height: 28px;
   }
-  .startGameForm button {
+  .gameContentMenu button {
     transition: opacity 0.7s;
   }
-  .startGameForm button:hover {
+  .gameContentMenu button:hover {
     transition: opacity 0.7s;
   }
   .winBackground {
