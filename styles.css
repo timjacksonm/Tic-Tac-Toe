@@ -30,7 +30,6 @@ input {
   background-color: #fff;
   border: 2px solid #000000;
   border-radius: 4px;
-  transition: 180ms box-shadow ease-in-out;
   text-align: center;
 }
 input:not(textarea) {
@@ -79,9 +78,6 @@ label {
   justify-content: center;
   align-items: center;
 }
-form {
-  transition: opacity 0.7s;
-}
 main {
   background-color: #447695;
 }
@@ -127,12 +123,10 @@ main {
   background-color: #0f8b8d;
   border-radius: 4px;
   letter-spacing: 2px;
-  transition: opacity 0.7s;
 }
 .startGameForm button:hover {
   cursor: pointer;
   outline: 2px groove #eebd6b;
-  transition: opacity 0.7s;
   background-color: #04082e;
   color: #eebd6b;
 }
@@ -151,29 +145,6 @@ main {
   border-radius: 4px;
   background-color: #3355dd;
   color: #eebd6b;
-  transition: opacity 0.7s;
-}
-.fadeIn {
-  opacity: 1;
-  animation-name: fadeInOpacity;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 1.5s;
-}
-.fadeInBoard {
-  opacity: 1;
-  animation-name: fadeInOpacity;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 1s;
-}
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 .gameBoard {
   flex: 1;
@@ -195,10 +166,7 @@ main {
   text-align: center;
 }
 .winBackground {
-  animation-name: colorchange;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  /* Do nothing unless 1025+ width */
 }
 @keyframes colorchange {
   0%{
@@ -218,9 +186,6 @@ main {
   }
   
 }
-/* .divTransition {
-  transition: opacity 0.7s;
-} */
 .top {
   border-top: 1.5px solid #0f8b8d;
 }
@@ -296,15 +261,53 @@ main {
 }
 /* Large devices (ipads / laptops etc) */
 @media (min-width: 1025px) {
+  form {
+    transition: opacity 0.7s;
+  }
   input[type="radio"] + label {
     font-size: 18px;
     width: 80px;
     height: 28px;
   }
+  .startGameForm button {
+    transition: opacity 0.7s;
+  }
+  .startGameForm button:hover {
+    transition: opacity 0.7s;
+  }
+  .winBackground {
+    animation-name: colorchange;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  .fadeInBoard {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+  }
+  .fadeIn {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1.5s;
+  }
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   .formBox {
     min-width: 60vh;
     min-height: 40vh;
     font-size: 14px;
+    transition: opacity 0.7s;
   }
   .header {
     font-size: 30px;
