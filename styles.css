@@ -85,16 +85,16 @@ body {
   align-self: center;
   flex: 1;
 }
-.top {
+.topBorder {
   border-top: 1.5px solid #0f8b8d;
 }
-.bot {
+.botBorder {
   border-bottom: 1.5px solid #0f8b8d;
 }
-.left {
+.leftBorder {
   border-left: 1.5px solid #0f8b8d;
 }
-.right {
+.rightBorder {
   border-right: 1.5px solid #0f8b8d;
 }
 /* Settings popup page child of gameContentMenu */

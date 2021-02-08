@@ -217,15 +217,15 @@ const Gameboard = ((function() {
     _Box7 = document.getElementById('Box7');
     _Box8 = document.getElementById('Box8');
     _Box9 = document.getElementById('Box9');
-    _Box1.setAttribute('class', 'top left fadeInBoard');
-    _Box2.setAttribute('class', 'top fadeInBoard');
-    _Box3.setAttribute('class', 'top right fadeInBoard');
-    _Box4.setAttribute('class', 'left fadeInBoard');
+    _Box1.setAttribute('class', 'topBorder leftBorder fadeInBoard');
+    _Box2.setAttribute('class', 'topBorder fadeInBoard');
+    _Box3.setAttribute('class', 'topBorder rightBorder fadeInBoard');
+    _Box4.setAttribute('class', 'leftBorder fadeInBoard');
     _Box5.setAttribute('class', 'center fadeInBoard');
-    _Box6.setAttribute('class', 'right fadeInBoard');
-    _Box7.setAttribute('class', 'bot left fadeInBoard');
-    _Box8.setAttribute('class', 'bot fadeInBoard');
-    _Box9.setAttribute('class', 'bot right fadeInBoard');
+    _Box6.setAttribute('class', 'rightBorder fadeInBoard');
+    _Box7.setAttribute('class', 'botBorder leftBorder fadeInBoard');
+    _Box8.setAttribute('class', 'botBorder fadeInBoard');
+    _Box9.setAttribute('class', 'botBorder rightBorder fadeInBoard');
     _displayController = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
     _selectMain.setAttribute('class', 'gameBoard');
   
@@ -399,17 +399,17 @@ const Gameboard = ((function() {
         if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX") {
           _selectNav.textContent = "GameOver, " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[0].setAttribute('class', 'winBackground');
-          _displayController[1].setAttribute('class', 'winBackground');
-          _displayController[2].setAttribute('class', 'winBackground');
+          _displayController[0].setAttribute('class', 'topBorder leftBorder winBackground');
+          _displayController[1].setAttribute('class', 'topBorder winBackground');
+          _displayController[2].setAttribute('class', 'topBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "GameOver " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[0].setAttribute('class', 'winBackground');
-          _displayController[1].setAttribute('class', 'winBackground');
-          _displayController[2].setAttribute('class', 'winBackground');
+          _displayController[0].setAttribute('class', 'topBorder leftBorder winBackground');
+          _displayController[1].setAttribute('class', 'topBorder winBackground');
+          _displayController[2].setAttribute('class', 'topBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -417,17 +417,17 @@ const Gameboard = ((function() {
         if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX") {
           _selectNav.textContent = "GameOver, " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[3].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[5].setAttribute('class', 'winBackground');
+          _displayController[3].setAttribute('class', 'leftBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[5].setAttribute('class', 'rightBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "GameOver " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[3].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[5].setAttribute('class', 'winBackground');
+          _displayController[3].setAttribute('class', 'leftBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[5].setAttribute('class', 'rightBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -435,17 +435,17 @@ const Gameboard = ((function() {
         if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[6].setAttribute('class', 'winBackground');
-          _displayController[7].setAttribute('class', 'winBackground');
-          _displayController[8].setAttribute('class', 'winBackground');
+          _displayController[6].setAttribute('class', 'botBorder leftBorder winBackground');
+          _displayController[7].setAttribute('class', 'botBorder winBackground');
+          _displayController[8].setAttribute('class', 'botBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[6].setAttribute('class', 'winBackground');
-          _displayController[7].setAttribute('class', 'winBackground');
-          _displayController[8].setAttribute('class', 'winBackground');
+          _displayController[6].setAttribute('class', 'botBorder leftBorder winBackground');
+          _displayController[7].setAttribute('class', 'botBorder winBackground');
+          _displayController[8].setAttribute('class', 'botBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -453,17 +453,17 @@ const Gameboard = ((function() {
         if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[0].setAttribute('class', 'winBackground');
-          _displayController[3].setAttribute('class', 'winBackground');
-          _displayController[6].setAttribute('class', 'winBackground');
+          _displayController[0].setAttribute('class', 'topBorder leftBorder winBackground');
+          _displayController[3].setAttribute('class', 'leftBorder winBackground');
+          _displayController[6].setAttribute('class', 'botBorder leftBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[0].setAttribute('class', 'winBackground');
-          _displayController[3].setAttribute('class', 'winBackground');
-          _displayController[6].setAttribute('class', 'winBackground');
+          _displayController[0].setAttribute('class', 'topBorder leftBorder winBackground');
+          _displayController[3].setAttribute('class', 'leftBorder winBackground');
+          _displayController[6].setAttribute('class', 'botBorder leftBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -471,17 +471,17 @@ const Gameboard = ((function() {
         if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[1].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[7].setAttribute('class', 'winBackground');
+          _displayController[1].setAttribute('class', 'topBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[7].setAttribute('class', 'botBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[1].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[7].setAttribute('class', 'winBackground');
+          _displayController[1].setAttribute('class', 'topBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[7].setAttribute('class', 'botBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -489,17 +489,17 @@ const Gameboard = ((function() {
         if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[2].setAttribute('class', 'winBackground');
-          _displayController[5].setAttribute('class', 'winBackground');
-          _displayController[8].setAttribute('class', 'winBackground');
+          _displayController[2].setAttribute('class', 'topBorder rightBorder winBackground');
+          _displayController[5].setAttribute('class', 'rightBorder winBackground');
+          _displayController[8].setAttribute('class', 'botBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[2].setAttribute('class', 'winBackground');
-          _displayController[5].setAttribute('class', 'winBackground');
-          _displayController[8].setAttribute('class', 'winBackground');
+          _displayController[2].setAttribute('class', 'topBorder rightBorder winBackground');
+          _displayController[5].setAttribute('class', 'rightBorder winBackground');
+          _displayController[8].setAttribute('class', 'botBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -507,17 +507,17 @@ const Gameboard = ((function() {
         if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[0].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[8].setAttribute('class', 'winBackground');
+          _displayController[0].setAttribute('class', 'topBorder leftBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[8].setAttribute('class', 'botBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[0].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[8].setAttribute('class', 'winBackground');
+          _displayController[0].setAttribute('class', 'topBorder leftBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[8].setAttribute('class', 'botBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
@@ -525,17 +525,17 @@ const Gameboard = ((function() {
         if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX") {
           _selectNav.textContent = "Game over. " + _playerOne.name + " You Win!";
           _addOrRemoveEvents();
-          _displayController[6].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[2].setAttribute('class', 'winBackground');
+          _displayController[6].setAttribute('class', 'botBorder leftBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[2].setAttribute('class', 'topBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'forestgreen';
           return;
         }else {
           _selectNav.textContent = "Game over. " + _playerTwo.name + " Won this round! Try again!";
           _addOrRemoveEvents();
-          _displayController[6].setAttribute('class', 'winBackground');
-          _displayController[4].setAttribute('class', 'winBackground');
-          _displayController[2].setAttribute('class', 'winBackground');
+          _displayController[6].setAttribute('class', 'botBorder leftBorder winBackground');
+          _displayController[4].setAttribute('class', 'center winBackground');
+          _displayController[2].setAttribute('class', 'topBorder rightBorder winBackground');
           _selectNav.style.backgroundColor = 'maroon';
           return;
         }
