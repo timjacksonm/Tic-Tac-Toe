@@ -15,6 +15,9 @@ const displayController = (function() {
   // reads data from a gameState for multiple things & manipulates the DOM
   const _selectNav = document.querySelector('nav');
 
+  const menuPlayerNames = () => {
+    _selectNav.textContent = playerOne.name + ' vs ' + playerTwo.name;
+  };
   const _endGameOptions = () => {
     const mainMenuButton = _selectNav.appendChild(document.createElement('button'));
     mainMenuButton.textContent = 'Main Menu';
@@ -191,6 +194,7 @@ const displayController = (function() {
   return {
     placeSymbol: placeSymbol,
     endGameDisplay: endGameDisplay,
+    menuPlayerNames: menuPlayerNames,
   };
 })();
 const settingsForm = (function() {
@@ -373,10 +377,10 @@ const gameBoard = (function() {
     boxSelector[7].setAttribute('class', 'botBorder fadeInBoard');
     boxSelector[8].setAttribute('class', 'botBorder rightBorder fadeInBoard');
     
-    
     _selectMain.setAttribute('class', 'gameBoard');
   
     addOrRemoveEvents();
+    displayController.menuPlayerNames();
   };
   function addOrRemoveEvents() {
     switch (_gameBoardEventToggle) {
@@ -635,7 +639,8 @@ function endGameEvent() {
   const mainMenu =  document.getElementById('mainMenu');
   const reset =  document.getElementById('reset');
 
-  reset.addEventListener('click', (e) => {e.preventDefault(), _reset()} )
+  mainMenu.addEventListener('click', () => {location.reload()});
+  reset.addEventListener('click', (e) => {e.preventDefault(), _reset()});
 }
 function _reset() {
   _selectNav.replaceChildren();
