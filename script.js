@@ -438,6 +438,12 @@ const gameFlow = (function() {
     const form = document.getElementById('formContainer');
     let p1Turn = '';
     let p2Turn = '';
+    let player1Form = form.player1Name.value;
+    let player2Form = form.player2Name.value;
+
+    function firstLetterUpper(string) {
+     return string.charAt(0).toUpperCase() + string.slice(1);
+    };
 
     switch (form.firstChoice.value) {
       case "Player 1":
@@ -453,8 +459,8 @@ const gameFlow = (function() {
         break;
     };
 
-    playerOne = playerFactory(`${form.player1Name.value}`, 'X', `${p1Turn}`);
-    playerTwo = playerFactory(`${form.player2Name.value}`, 'O', `${p2Turn}`);
+    playerOne = playerFactory(firstLetterUpper(player1Form), 'X', `${p1Turn}`);
+    playerTwo = playerFactory(firstLetterUpper(player2Form), 'O', `${p2Turn}`);
 
     form.style.opacity = '0';
     setTimeout(function() {
