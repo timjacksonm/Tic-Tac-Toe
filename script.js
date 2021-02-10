@@ -15,7 +15,7 @@ const displayController = (function() {
   // reads data from a gameState for multiple things & manipulates the DOM
   const _selectNav = document.querySelector('nav');
 
-  const endGameOptions = () => {
+  const _endGameOptions = () => {
     const mainMenuButton = _selectNav.appendChild(document.createElement('button'));
     mainMenuButton.textContent = 'Main Menu';
     mainMenuButton.setAttribute('class', 'resetGameButtons');
@@ -131,7 +131,8 @@ const displayController = (function() {
     _selectNav.textContent = playerOne.name + " vs " + playerTwo.name + " Result in a Tie!";
   }
 
-  endGameOptions();
+  _endGameOptions();
+  gameFlow.endGameEvent();
 
   switch (position) {
     case '012':
@@ -418,6 +419,7 @@ const gameFlow = (function() {
   const _onePlayerButton = document.getElementById('onePlayerSelect');
   const _twoPlayerButton = document.getElementById('twoPlayerSelect');
   const _selectMain = document.querySelector('main');
+  const _selectNav = document.querySelector('nav');
 
   //first screen menu - 1 player & 2 player buttons
   _onePlayerButton.addEventListener('click', () => {});
@@ -624,15 +626,31 @@ const gameFlow = (function() {
         position = 'Tie';
         result = 'Tie';
         displayController.endGameDisplay(symbol, result, position);
+        gameBoard.addOrRemoveEvents();
         return;
       };
     };
   };
+function endGameEvent() {
+  const mainMenu =  document.getElementById('mainMenu');
+  const reset =  document.getElementById('reset');
 
+  reset.addEventListener('click', (e) => {e.preventDefault(), _reset()} )
+}
+function _reset() {
+  _selectNav.replaceChildren();
+  _selectNav.textContent = '';
+  _selectNav.style.backgroundColor = '#3355dd';
+  _selectMain.replaceChildren();
+  gameBoard.createBoard();
+  gameBoardScore = ["", "", "", "", "", "", "", "", ""];
+  turnSymbol = '';
+};
   return {
     startGameEvent: startGameEvent,
     startGame: startGame,
     thePlayChoice: thePlayChoice,
     checkGameOver: checkGameOver,
+    endGameEvent: endGameEvent,
   };
 })();
