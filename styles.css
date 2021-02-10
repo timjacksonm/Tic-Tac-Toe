@@ -4,6 +4,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  justify-content: center;
 }
 
 /* Game Title section | <header> */
@@ -189,8 +190,8 @@ body {
   display: inline-block;
   border-radius: 4px;
   font-size: 14px;
-  width: 50px;
-  height: 15px;
+  width: 60px;
+  height: 20px;
   margin: 5px;
   padding: 4px 12px;
   text-align: center;
