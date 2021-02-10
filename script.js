@@ -194,8 +194,8 @@ const settingsForm = (function() {
     _twoPlayerButton.style.opacity = '0';
     _onePlayerButton.style.opacity = '0';
     setTimeout(function() {
-      onePlayerButton.remove();
-      twoPlayerButton.remove();
+      _onePlayerButton.remove();
+      _twoPlayerButton.remove();
       _selectNav.replaceChildren();
     }, 700);
     setTimeout(function wait(){
