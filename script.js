@@ -4,11 +4,11 @@ const playerFactory = (name, symbol, turn) => {
   getTurn = turn;
   return {name, symbol, turn};
 };
-let _playerOne = playerFactory("", '', ''); 
-let _playerTwo = playerFactory("", '', '');
-let _gameBoard = ["", "", "", "", "", "", "", "", ""]; // current score
-let _turnSymbol = '';
-let _boxSelector = []; // array of each box on game screen. used to select.
+let playerOne = playerFactory("", '', ''); 
+let playerTwo = playerFactory("", '', '');
+let gameBoardScore = ["", "", "", "", "", "", "", "", ""]; // current score
+let turnSymbol = '';
+let boxSelector = []; // array of each box on game screen. used to select.
 
 const displayController = (function() {
   'use strict';
@@ -25,39 +25,39 @@ const displayController = (function() {
     if(turnSymbol == 'X') {
       switch (boxNum) {
         case 'Box1':
-          _boxSelector[0].appendChild(X);
+          boxSelector[0].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box2':
-          _boxSelector[1].appendChild(X);
+          boxSelector[1].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box3':
-          _boxSelector[2].appendChild(X);
+          boxSelector[2].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box4':
-          _boxSelector[3].appendChild(X);
+          boxSelector[3].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box5':
-          _boxSelector[4].appendChild(X);
+          boxSelector[4].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box6':
-          _boxSelector[5].appendChild(X);
+          boxSelector[5].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box7':
-          _boxSelector[6].appendChild(X);
+          boxSelector[6].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box8':
-          _boxSelector[7].appendChild(X);
+          boxSelector[7].appendChild(X);
           gameFlow._checkGameOver();
           break;
         case 'Box9':
-          _boxSelector[8].appendChild(X);
+          boxSelector[8].appendChild(X);
           gameFlow._checkGameOver();
           break;
         default:
@@ -65,39 +65,39 @@ const displayController = (function() {
     }else if(turnSymbol == 'O') {
       switch (boxNum) {
         case 'Box1':
-          _boxSelector[0].appendChild(O);
+          boxSelector[0].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box2':
-          _boxSelector[1].appendChild(O);
+          boxSelector[1].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box3':
-          _boxSelector[2].appendChild(O);
+          boxSelector[2].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box4':
-          _boxSelector[3].appendChild(O);
+          boxSelector[3].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box5':
-          _boxSelector[4].appendChild(O);
+          boxSelector[4].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box6':
-          _boxSelector[5].appendChild(O);
+          boxSelector[5].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box7':
-          _boxSelector[6].appendChild(O);
+          boxSelector[6].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box8':
-          _boxSelector[7].appendChild(O);
+          boxSelector[7].appendChild(O);
           gameFlow._checkGameOver();
           break;
         case 'Box9':
-          _boxSelector[8].appendChild(O);
+          boxSelector[8].appendChild(O);
           gameFlow._checkGameOver();
           break;
         default:
@@ -110,7 +110,7 @@ const displayController = (function() {
 
   symbol == 'X' ? color = 'forestgreen' : color = 'maroon';
 
-  symbol == 'X' ? playerName = _playerOne.name : playerName = _playerTwo.name
+  symbol == 'X' ? playerName = playerOne.name : playerName = playerTwo.name
   
   if(result == 'Win') {
     _selectNav.textContent = "Game Over. " + playerName + " You Win!";
@@ -118,7 +118,7 @@ const displayController = (function() {
     _selectNav.textContent = "Game Over. " + playerName + " You Win!";
     _selectNav.textContent = "Game Over. " + playerName + " Won this round! Try again!";
   }else {
-    _selectNav.textContent = _playerOne.name + " vs " + _playerTwo.name + " Result in a Tie!";
+    _selectNav.textContent = playerOne.name + " vs " + playerTwo.name + " Result in a Tie!";
   }
 
   switch (position) {
@@ -283,7 +283,7 @@ const gameBoard = (function() {
   'use strict';
   //creates gameBoard with divs - assigns ID's & classes
   const _selectMain = document.querySelector('main');
-  // let _boxSelector = []; // array of each box on game screen. used to select.
+
   let _gameBoardEventToggle = 'off' // toggle to turn off / on eventListeners. Win & lose screen uses this.
   let _boxNum = ''; //Last box that was clicked on game screen.
 
@@ -291,47 +291,47 @@ const gameBoard = (function() {
   let _Box1ClickEvent = (e) => {
      _boxNum = e.target.attributes[0].value;
      gameFlow._choice(_boxNum, '0');
-     _boxSelector[0].removeEventListener('click', _Box1ClickEvent);
+     boxSelector[0].removeEventListener('click', _Box1ClickEvent);
   };
   let _Box2ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '1');
-    _boxSelector[1].removeEventListener('click', _Box2ClickEvent);
+    boxSelector[1].removeEventListener('click', _Box2ClickEvent);
   };
   let _Box3ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '2');
-    _boxSelector[2].removeEventListener('click', _Box3ClickEvent);
+    boxSelector[2].removeEventListener('click', _Box3ClickEvent);
   };
   let _Box4ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '3');
-    _boxSelector[3].removeEventListener('click', _Box4ClickEvent);
+    boxSelector[3].removeEventListener('click', _Box4ClickEvent);
   };
   let _Box5ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '4');
-    _boxSelector[4].removeEventListener('click', _Box5ClickEvent);
+    boxSelector[4].removeEventListener('click', _Box5ClickEvent);
   };
   let _Box6ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '5');
-    _boxSelector[5].removeEventListener('click', _Box6ClickEvent);
+    boxSelector[5].removeEventListener('click', _Box6ClickEvent);
   };
   let _Box7ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '6');
-    _boxSelector[6].removeEventListener('click', _Box7ClickEvent);
+    boxSelector[6].removeEventListener('click', _Box7ClickEvent);
   };
   let _Box8ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '7');
-    _boxSelector[7].removeEventListener('click', _Box8ClickEvent);
+    boxSelector[7].removeEventListener('click', _Box8ClickEvent);
   };
   let _Box9ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
     gameFlow._choice(_boxNum, '8');
-    _boxSelector[8].removeEventListener('click', _Box9ClickEvent);
+    boxSelector[8].removeEventListener('click', _Box9ClickEvent);
   };
 
   function createBoard() {
@@ -349,16 +349,16 @@ const gameBoard = (function() {
     const Box7 = document.getElementById('Box7');
     const Box8 = document.getElementById('Box8');
     const Box9 = document.getElementById('Box9');
-    _boxSelector = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
-    _boxSelector[0].setAttribute('class', 'topBorder leftBorder fadeInBoard');
-    _boxSelector[1].setAttribute('class', 'topBorder fadeInBoard');
-    _boxSelector[2].setAttribute('class', 'topBorder rightBorder fadeInBoard');
-    _boxSelector[3].setAttribute('class', 'leftBorder fadeInBoard');
-    _boxSelector[4].setAttribute('class', 'center fadeInBoard');
-    _boxSelector[5].setAttribute('class', 'rightBorder fadeInBoard');
-    _boxSelector[6].setAttribute('class', 'botBorder leftBorder fadeInBoard');
-    _boxSelector[7].setAttribute('class', 'botBorder fadeInBoard');
-    _boxSelector[8].setAttribute('class', 'botBorder rightBorder fadeInBoard');
+    boxSelector = [Box1, Box2, Box3, Box4, Box5, Box6, Box7, Box8, Box9];
+    boxSelector[0].setAttribute('class', 'topBorder leftBorder fadeInBoard');
+    boxSelector[1].setAttribute('class', 'topBorder fadeInBoard');
+    boxSelector[2].setAttribute('class', 'topBorder rightBorder fadeInBoard');
+    boxSelector[3].setAttribute('class', 'leftBorder fadeInBoard');
+    boxSelector[4].setAttribute('class', 'center fadeInBoard');
+    boxSelector[5].setAttribute('class', 'rightBorder fadeInBoard');
+    boxSelector[6].setAttribute('class', 'botBorder leftBorder fadeInBoard');
+    boxSelector[7].setAttribute('class', 'botBorder fadeInBoard');
+    boxSelector[8].setAttribute('class', 'botBorder rightBorder fadeInBoard');
     
     
     _selectMain.setAttribute('class', 'gameBoard');
@@ -368,27 +368,27 @@ const gameBoard = (function() {
   function _addOrRemoveEvents() {
     switch (_gameBoardEventToggle) {
       case 'off': // used at beginning of game. adds to each Box on game board.
-        _boxSelector[0].addEventListener('click', _Box1ClickEvent);
-        _boxSelector[1].addEventListener('click', _Box2ClickEvent);
-        _boxSelector[2].addEventListener('click', _Box3ClickEvent);
-        _boxSelector[3].addEventListener('click', _Box4ClickEvent);
-        _boxSelector[4].addEventListener('click', _Box5ClickEvent);
-        _boxSelector[5].addEventListener('click', _Box6ClickEvent);
-        _boxSelector[6].addEventListener('click', _Box7ClickEvent);
-        _boxSelector[7].addEventListener('click', _Box8ClickEvent);
-        _boxSelector[8].addEventListener('click', _Box9ClickEvent);
+        boxSelector[0].addEventListener('click', _Box1ClickEvent);
+        boxSelector[1].addEventListener('click', _Box2ClickEvent);
+        boxSelector[2].addEventListener('click', _Box3ClickEvent);
+        boxSelector[3].addEventListener('click', _Box4ClickEvent);
+        boxSelector[4].addEventListener('click', _Box5ClickEvent);
+        boxSelector[5].addEventListener('click', _Box6ClickEvent);
+        boxSelector[6].addEventListener('click', _Box7ClickEvent);
+        boxSelector[7].addEventListener('click', _Box8ClickEvent);
+        boxSelector[8].addEventListener('click', _Box9ClickEvent);
         _gameBoardEventToggle = 'on';
         break;
       case 'on': // used on win or loss screen - prevent further adding symbols to the game board.
-        _boxSelector[0].removeEventListener('click', _Box1ClickEvent);
-        _boxSelector[1].removeEventListener('click', _Box2ClickEvent);
-        _boxSelector[2].removeEventListener('click', _Box3ClickEvent);
-        _boxSelector[3].removeEventListener('click', _Box4ClickEvent);
-        _boxSelector[4].removeEventListener('click', _Box5ClickEvent);
-        _boxSelector[5].removeEventListener('click', _Box6ClickEvent);
-        _boxSelector[6].removeEventListener('click', _Box7ClickEvent);
-        _boxSelector[7].removeEventListener('click', _Box8ClickEvent);
-        _boxSelector[8].removeEventListener('click', _Box9ClickEvent);
+        boxSelector[0].removeEventListener('click', _Box1ClickEvent);
+        boxSelector[1].removeEventListener('click', _Box2ClickEvent);
+        boxSelector[2].removeEventListener('click', _Box3ClickEvent);
+        boxSelector[3].removeEventListener('click', _Box4ClickEvent);
+        boxSelector[4].removeEventListener('click', _Box5ClickEvent);
+        boxSelector[5].removeEventListener('click', _Box6ClickEvent);
+        boxSelector[6].removeEventListener('click', _Box7ClickEvent);
+        boxSelector[7].removeEventListener('click', _Box8ClickEvent);
+        boxSelector[8].removeEventListener('click', _Box9ClickEvent);
         _gameBoardEventToggle = 'off';
         break;
       default:
@@ -435,8 +435,8 @@ const gameFlow = (function() {
         break;
     };
 
-    _playerOne = playerFactory(`${form.player1Name.value}`, 'X', `${p1Turn}`);
-    _playerTwo = playerFactory(`${form.player2Name.value}`, 'O', `${p2Turn}`);
+    playerOne = playerFactory(`${form.player1Name.value}`, 'X', `${p1Turn}`);
+    playerTwo = playerFactory(`${form.player2Name.value}`, 'O', `${p2Turn}`);
 
     form.style.opacity = '0';
     setTimeout(function() {
@@ -448,36 +448,36 @@ const gameFlow = (function() {
       gameBoard.createBoard();
     }, 700);
   };
-  function checkTurn(_playerOneTurn, _playerTwoTurn) {
+  function checkTurn(playerOneTurn, playerTwoTurn) {
   
-    if(_gameBoard.includes('X') || _gameBoard.includes('O')) {
-      if (_turnSymbol == 'X') {
-        _turnSymbol = 'O';
+    if(gameBoardScore.includes('X') || gameBoardScore.includes('O')) {
+      if (turnSymbol == 'X') {
+        turnSymbol = 'O';
         return;
       }else {
-        _turnSymbol = 'X';
+        turnSymbol = 'X';
         return;
       }
-    }else if(_playerOneTurn == 'First' && _playerTwoTurn == 'Second') {
-      _turnSymbol = 'X';
+    }else if(playerOneTurn == 'First' && playerTwoTurn == 'Second') {
+      turnSymbol = 'X';
       return;
     }else {
-      _turnSymbol = 'O';
+      turnSymbol = 'O';
       return;
     }
   };
   const _choice = (_boxNum, index) => {
-    checkTurn(_playerOne.turn, _playerTwo.turn);
-    _gameBoard[index] = _turnSymbol;
-    displayController.placeSymbol(_boxNum,_turnSymbol);
+    checkTurn(playerOne.turn, playerTwo.turn);
+    gameBoardScore[index] = turnSymbol;
+    displayController.placeSymbol(_boxNum,turnSymbol);
   };
   function _checkGameOver() {
       let symbol = '';
       let result = '';
       let position = '';
-    if(_gameBoard.includes("X" || "O")) {
-      if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX" || _gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "OOO") {
-        if(_gameBoard[0]+_gameBoard[1]+_gameBoard[2] == "XXX") {
+    if(gameBoardScore.includes("X" || "O")) {
+      if(gameBoardScore[0]+gameBoardScore[1]+gameBoardScore[2] == "XXX" || gameBoardScore[0]+gameBoardScore[1]+gameBoardScore[2] == "OOO") {
+        if(gameBoardScore[0]+gameBoardScore[1]+gameBoardScore[2] == "XXX") {
           symbol = 'X';
           position = '012';
           result = 'Win';
@@ -492,8 +492,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX" || _gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "OOO"){
-        if(_gameBoard[3]+_gameBoard[4]+_gameBoard[5] == "XXX") {
+      }else if(gameBoardScore[3]+gameBoardScore[4]+gameBoardScore[5] == "XXX" || gameBoardScore[3]+gameBoardScore[4]+gameBoardScore[5] == "OOO"){
+        if(gameBoardScore[3]+gameBoardScore[4]+gameBoardScore[5] == "XXX") {
           symbol = 'X';
           position = '345';
           result = 'Win';
@@ -508,8 +508,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX" || _gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "OOO") {
-        if(_gameBoard[6]+_gameBoard[7]+_gameBoard[8] == "XXX") {
+      }else if(gameBoardScore[6]+gameBoardScore[7]+gameBoardScore[8] == "XXX" || gameBoardScore[6]+gameBoardScore[7]+gameBoardScore[8] == "OOO") {
+        if(gameBoardScore[6]+gameBoardScore[7]+gameBoardScore[8] == "XXX") {
           symbol = 'X';
           position = '678';
           result = 'Win';
@@ -524,8 +524,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();o
           return;
         }
-      }else if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX" || _gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "OOO") {
-        if(_gameBoard[0]+_gameBoard[3]+_gameBoard[6] == "XXX") {
+      }else if(gameBoardScore[0]+gameBoardScore[3]+gameBoardScore[6] == "XXX" || gameBoardScore[0]+gameBoardScore[3]+gameBoardScore[6] == "OOO") {
+        if(gameBoardScore[0]+gameBoardScore[3]+gameBoardScore[6] == "XXX") {
           symbol = 'X';
           position = '036';
           result = 'Win';
@@ -540,8 +540,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX" || _gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "OOO") {
-        if(_gameBoard[1]+_gameBoard[4]+_gameBoard[7] == "XXX") {
+      }else if(gameBoardScore[1]+gameBoardScore[4]+gameBoardScore[7] == "XXX" || gameBoardScore[1]+gameBoardScore[4]+gameBoardScore[7] == "OOO") {
+        if(gameBoardScore[1]+gameBoardScore[4]+gameBoardScore[7] == "XXX") {
           symbol = 'X';
           position = '147';
           result = 'Win';
@@ -556,8 +556,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX" || _gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "OOO") {
-        if(_gameBoard[2]+_gameBoard[5]+_gameBoard[8] == "XXX") {
+      }else if(gameBoardScore[2]+gameBoardScore[5]+gameBoardScore[8] == "XXX" || gameBoardScore[2]+gameBoardScore[5]+gameBoardScore[8] == "OOO") {
+        if(gameBoardScore[2]+gameBoardScore[5]+gameBoardScore[8] == "XXX") {
           symbol = 'X';
           position = '258';
           result = 'Win';
@@ -572,8 +572,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX" || _gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "OOO") {
-        if(_gameBoard[0]+_gameBoard[4]+_gameBoard[8] == "XXX") {
+      }else if(gameBoardScore[0]+gameBoardScore[4]+gameBoardScore[8] == "XXX" || gameBoardScore[0]+gameBoardScore[4]+gameBoardScore[8] == "OOO") {
+        if(gameBoardScore[0]+gameBoardScore[4]+gameBoardScore[8] == "XXX") {
           symbol = 'X';
           position = '048';
           result = 'Win';
@@ -588,8 +588,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX" || _gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "OOO") {
-        if(_gameBoard[6]+_gameBoard[4]+_gameBoard[2] == "XXX") {
+      }else if(gameBoardScore[6]+gameBoardScore[4]+gameBoardScore[2] == "XXX" || gameBoardScore[6]+gameBoardScore[4]+gameBoardScore[2] == "OOO") {
+        if(gameBoardScore[6]+gameBoardScore[4]+gameBoardScore[2] == "XXX") {
           symbol = 'X';
           position = '642';
           result = 'Win';
@@ -604,8 +604,8 @@ const gameFlow = (function() {
           gameBoard._addOrRemoveEvents();
           return;
         }
-      }else if(_gameBoard.includes("")){
-        console.log("Game stil ongoing");
+      }else if(gameBoardScore.includes("")){
+        // console.log("Game stil ongoing");
         return;
       }else {
         symbol = 'Tie';
