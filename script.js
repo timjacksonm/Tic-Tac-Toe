@@ -15,6 +15,17 @@ const displayController = (function() {
   // reads data from a gameState for multiple things & manipulates the DOM
   const _selectNav = document.querySelector('nav');
 
+  const endGameOptions = () => {
+    const mainMenuButton = _selectNav.appendChild(document.createElement('button'));
+    mainMenuButton.textContent = 'Main Menu';
+    mainMenuButton.setAttribute('class', 'resetGameButtons');
+    mainMenuButton.setAttribute('id', 'mainMenu');
+
+    const resetButton = _selectNav.appendChild(document.createElement('button'));
+    resetButton.textContent = 'Reset';
+    resetButton.setAttribute('class', 'resetGameButtons');
+    resetButton.setAttribute('id', 'reset');  
+  };
   const placeSymbol = (boxNum,turnSymbol) => {
     const X = document.createElement('img');
     X.setAttribute('src', "graphics/GoldTypographyX.svg");
@@ -104,7 +115,7 @@ const displayController = (function() {
       };
     };
   };
-  const endGameDisplay = (symbol, result, position) => {
+  const endGameDisplay = (symbol, result, position) => { 
   let color = '';
   let playerName = '';
 
@@ -115,11 +126,12 @@ const displayController = (function() {
   if(result == 'Win') {
     _selectNav.textContent = "Game Over. " + playerName + " You Win!";
   }else if(result == 'Lose') {
-    _selectNav.textContent = "Game Over. " + playerName + " You Win!";
     _selectNav.textContent = "Game Over. " + playerName + " Won this round! Try again!";
   }else {
     _selectNav.textContent = playerOne.name + " vs " + playerTwo.name + " Result in a Tie!";
   }
+
+  endGameOptions();
 
   switch (position) {
     case '012':
