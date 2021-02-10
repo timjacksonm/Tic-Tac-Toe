@@ -23,7 +23,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em 1em;
+  justify-content: center;
+  padding: 1px;
+  min-height: 17.4%;
   text-align: center;
   background-color: #3355dd;
   font-size: 16px;
@@ -82,20 +84,30 @@ body {
   color: #eebd6b;
 }
 .gameBoard {
+<<<<<<< HEAD
+=======
+  display: flex;
+>>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+<<<<<<< HEAD
   /* padding: 12% 9%; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+=======
+  padding: 5% 0px;
+>>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   background-color: #447695;
   border-top: 2px solid #0f8b8d;
   border-bottom: 2px solid #0f8b8d;
 }
 .gameBoard div {
   display: flex;
-  min-height: 3em;
-  min-width: 3em;
+  width: 30%;
+  min-height: 10vh;
   outline: 1px groove #3355dd;
   background-color: #000000;
   text-align: center;
@@ -266,7 +278,11 @@ main {
     font-size: 20px;
   }
   .gameBoard {
+<<<<<<< HEAD
     /* padding: 10% 10%; */
+=======
+    padding: 6%;
+>>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   }
   .footer {
     font-size: 14px;
@@ -311,6 +327,9 @@ main {
       background-color: #996433;
     }
   }
+  .gameBoard {
+    padding: 1% 30%;
+  }
   .fadeInBoard {
     opacity: 1;
     animation-name: fadeInOpacity;
@@ -347,9 +366,12 @@ main {
     font-size: 18px;
     padding: 1em 1em;
   }
+<<<<<<< HEAD
   .gameBoard {
     /* padding: 2% 20%; */
   }
+=======
+>>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   .footer {
     font-size: 14px;
     padding: 0.5em 0.5em;
