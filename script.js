@@ -290,47 +290,47 @@ const gameBoard = (function() {
 //below are game screen box event listeners that execute once when clicked.
   let _Box1ClickEvent = (e) => {
      _boxNum = e.target.attributes[0].value;
-     gameFlow._choice(_boxNum, '0');
+     gameFlow.thePlayChoice(_boxNum, '0');
      boxSelector[0].removeEventListener('click', _Box1ClickEvent);
   };
   let _Box2ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '1');
+    gameFlow.thePlayChoice(_boxNum, '1');
     boxSelector[1].removeEventListener('click', _Box2ClickEvent);
   };
   let _Box3ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '2');
+    gameFlow.thePlayChoice(_boxNum, '2');
     boxSelector[2].removeEventListener('click', _Box3ClickEvent);
   };
   let _Box4ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '3');
+    gameFlow.thePlayChoice(_boxNum, '3');
     boxSelector[3].removeEventListener('click', _Box4ClickEvent);
   };
   let _Box5ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '4');
+    gameFlow.thePlayChoice(_boxNum, '4');
     boxSelector[4].removeEventListener('click', _Box5ClickEvent);
   };
   let _Box6ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '5');
+    gameFlow.thePlayChoice(_boxNum, '5');
     boxSelector[5].removeEventListener('click', _Box6ClickEvent);
   };
   let _Box7ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '6');
+    gameFlow.thePlayChoice(_boxNum, '6');
     boxSelector[6].removeEventListener('click', _Box7ClickEvent);
   };
   let _Box8ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '7');
+    gameFlow.thePlayChoice(_boxNum, '7');
     boxSelector[7].removeEventListener('click', _Box8ClickEvent);
   };
   let _Box9ClickEvent = (e) => {
     _boxNum = e.target.attributes[0].value;
-    gameFlow._choice(_boxNum, '8');
+    gameFlow.thePlayChoice(_boxNum, '8');
     boxSelector[8].removeEventListener('click', _Box9ClickEvent);
   };
 
@@ -466,7 +466,7 @@ const gameFlow = (function() {
       return;
     }
   };
-  const _choice = (_boxNum, index) => {
+  const thePlayChoice = (_boxNum, index) => {
     checkTurn(playerOne.turn, playerTwo.turn);
     gameBoardScore[index] = turnSymbol;
     displayController.placeSymbol(_boxNum,turnSymbol);
@@ -620,7 +620,7 @@ const gameFlow = (function() {
   return {
     startGameEvent: startGameEvent,
     startGame: startGame,
-    _choice: _choice,
+    thePlayChoice: thePlayChoice,
     _checkGameOver: _checkGameOver,
   };
 })();
