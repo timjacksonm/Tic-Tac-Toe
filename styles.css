@@ -6,6 +6,7 @@ body {
   height: 100vh;
   justify-content: center;
 }
+
 /* Game Title section | <header> */
 .header {
   padding: 3em 1em;
@@ -84,22 +85,12 @@ body {
   color: #eebd6b;
 }
 .gameBoard {
-<<<<<<< HEAD
-=======
   display: flex;
->>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-<<<<<<< HEAD
-  /* padding: 12% 9%; */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-=======
   padding: 5% 0px;
->>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   background-color: #447695;
   border-top: 2px solid #0f8b8d;
   border-bottom: 2px solid #0f8b8d;
@@ -278,11 +269,7 @@ main {
     font-size: 20px;
   }
   .gameBoard {
-<<<<<<< HEAD
-    /* padding: 10% 10%; */
-=======
     padding: 6%;
->>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   }
   .footer {
     font-size: 14px;
@@ -366,12 +353,6 @@ main {
     font-size: 18px;
     padding: 1em 1em;
   }
-<<<<<<< HEAD
-  .gameBoard {
-    /* padding: 2% 20%; */
-  }
-=======
->>>>>>> db876ec (removed display:grid for gameboard and implented the board as a flex of divs that wrap.)
   .footer {
     font-size: 14px;
     padding: 0.5em 0.5em;
@@ -386,7 +367,7 @@ main {
     font-size: 18px;
   }
   .gameBoard {
-    /* padding: 1% 30%; */
+    padding: 1% 30%;
   }
   .footer {
     font-size: 16px;
