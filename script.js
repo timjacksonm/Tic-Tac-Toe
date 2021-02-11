@@ -489,10 +489,44 @@ const gameBoard = (function() {
       default:
         break;
       };
-    };
+  };
+  function removeTargetedEvent(target) {
+    switch (target) {
+      case 0:
+        boxSelector[0].removeEventListener('click', _Box0ClickEvent);
+        break;
+      case 1:
+        boxSelector[1].removeEventListener('click', _Box1ClickEvent);
+        break;
+      case 2:
+        boxSelector[2].removeEventListener('click', _Box2ClickEvent);
+        break;
+      case 3:
+        boxSelector[3].removeEventListener('click', _Box3ClickEvent);
+        break;
+      case 4:
+        boxSelector[4].removeEventListener('click', _Box4ClickEvent);
+        break;
+      case 5:
+        boxSelector[5].removeEventListener('click', _Box5ClickEvent);
+        break;
+      case 6:
+        boxSelector[6].removeEventListener('click', _Box6ClickEvent);
+        break;
+      case 7:
+        boxSelector[7].removeEventListener('click', _Box7ClickEvent);
+        break;
+      case 7:
+        boxSelector[8].removeEventListener('click', _Box8ClickEvent);
+        break;
+      default:
+        break;
+    }
+  }
   return {
     createBoard: createBoard,
     addOrRemoveEvents: addOrRemoveEvents,
+    removeTargetedEvent: removeTargetedEvent,
   };
 })();
 const gameFlow = (function() {
@@ -529,6 +563,7 @@ const gameFlow = (function() {
         break;
       };
     };
+    gameBoard.removeTargetedEvent(computerPlay);
     thePlayChoice(boxNum, computerPlay);
   };
   function startGameEvent() {
