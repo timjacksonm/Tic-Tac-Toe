@@ -10,6 +10,7 @@
 
 **Optional Extra Credit**
 
+- [✔️] Learn about responsive design and make game playable across multiple devices!
 - [✔️] learn and apply how to add transition effects.
 - [✔️] create an AI so that a player can play against the computer!
 - [] Once AI is working, make it unbeatable!
