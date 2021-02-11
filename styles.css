@@ -34,6 +34,10 @@ body {
   font-family: "Times New Roman", Times, serif;
   border-top: 1.5px solid #0f8b8d;
 }
+.displayTextMenu h2,
+h3 {
+  margin: 1%;
+}
 .resetGameButtons {
   outline: 1px groove #000000;
   border: none;
