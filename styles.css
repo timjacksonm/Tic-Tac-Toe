@@ -35,7 +35,7 @@ body {
   border-top: 1.5px solid #0f8b8d;
 }
 .resetGameButtons {
-  outline: 2px groove #000000;
+  outline: 1px groove #000000;
   border: none;
   margin: 10px 10px 5px;
   min-width: 40px;

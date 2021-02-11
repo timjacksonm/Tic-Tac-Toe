@@ -11,8 +11,8 @@
 **Optional Extra Credit**
 
 - [✔️] learn and apply how to add transition effects.
-- [] create an AI so that a player can play against the computer!
+- [✔️] create an AI so that a player can play against the computer!
 - [] Once AI is working, make it unbeatable!
-- [] add a light/dark mode button to the site.
+- [x] ~~add a light/dark mode button to the site.~~ I decided not to do this option as it doesn't make sense for a tic-tac-toe game. Will try on the next project!
 
 **View Commits on project to see changes**
