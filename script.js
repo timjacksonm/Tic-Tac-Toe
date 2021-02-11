@@ -29,7 +29,7 @@ const displayController = (function() {
     resetButton.setAttribute('class', 'resetGameButtons');
     resetButton.setAttribute('id', 'reset');  
   };
-  const placeSymbol = (boxNum,turnSymbol) => {
+  const placeSymbol = (boxNum,turnSymbol, compBoxNum) => {
     const X = document.createElement('img');
     X.setAttribute('src', "graphics/GoldTypographyX.svg");
 
@@ -40,38 +40,65 @@ const displayController = (function() {
       switch (boxNum) {
         case 'Box1':
           boxSelector[0].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+          boxSelector[compBoxNum].appendChild(O);
+          }
           gameFlow.checkGameOver();
           break;
         case 'Box2':
           boxSelector[1].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box3':
           boxSelector[2].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box4':
           boxSelector[3].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box5':
           boxSelector[4].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box6':
           boxSelector[5].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box7':
           boxSelector[6].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box8':
           boxSelector[7].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         case 'Box9':
           boxSelector[8].appendChild(X);
+          if (playerTwo.name == 'Computer' && gameBoardScore.includes("")) {
+            boxSelector[compBoxNum].appendChild(O);
+            }
           gameFlow.checkGameOver();
           break;
         default:
@@ -206,7 +233,20 @@ const settingsForm = (function() {
   const _twoPlayerButton = document.getElementById('twoPlayerSelect');
   const _form = document.getElementById('formContainer');
 
-  const onePlayer = ''; //disabled, code not written yet.
+  const onePlayer = function fadeOutButtons() {
+    _twoPlayerButton.style.opacity = '0';
+    _onePlayerButton.style.opacity = '0';
+    setTimeout(function() {
+      _onePlayerButton.remove();
+      _twoPlayerButton.remove();
+      _selectNav.replaceChildren();
+    }, 700);
+    setTimeout(function wait(){
+      //0.7 seconds for transition fadeout
+      _openForm('1 Player');
+      gameFlow.startGameEvent();
+    }, 700);
+  };
   const twoPlayer = function fadeOutButtons() {
     _twoPlayerButton.style.opacity = '0';
     _onePlayerButton.style.opacity = '0';
@@ -217,11 +257,71 @@ const settingsForm = (function() {
     }, 700);
     setTimeout(function wait(){
       //0.7 seconds for transition fadeout
-      _openForm();
+      _openForm('2 Player');
       gameFlow.startGameEvent();
     }, 700);
   };
-  function _openForm() {
+  function _openForm(selection) {
+    if (selection == '1 Player') {
+      const createSpan = document.createElement('span');
+      const createH2 = document.createElement('h2');
+      const createButton = document.createElement('button');
+      const createDiv = document.createElement('div');
+
+      _selectMain.firstElementChild.appendChild(createSpan);
+      createSpan.setAttribute('class', 'formBox fadeIn');
+      
+      _selectMain.querySelector('span').appendChild(createH2);
+      createH2.textContent = "You chose a 1 Player Game";
+      
+      const textP1 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
+      textP1.textContent = "Player 1 Name?";
+      const nameInput1 = _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      nameInput1.setAttribute('autocomplete', 'off');
+      nameInput1.setAttribute('name', 'player1Name');
+
+      const textP2 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
+      textP2.textContent = "Player 2 Name?";
+      const nameInput2 = _selectMain.querySelector('span').appendChild(document.createElement('input'));
+      nameInput2.setAttribute('autocomplete', 'off');
+      nameInput2.setAttribute('name', 'player2Name');
+      nameInput2.setAttribute('disabled', 'disabled');
+      nameInput2.setAttribute('value', 'Computer');
+
+      const textP3 = _selectMain.querySelector('span').appendChild(document.createElement('p'));
+      textP3.textContent = "Which player should go first?";
+
+      _selectMain.querySelector('span').appendChild(createDiv);
+      createDiv.setAttribute('class', 'radioContainer');
+
+      const op1 = _selectMain.querySelector('div').appendChild(document.createElement('input'));
+      op1.setAttribute('id', 'turnChoice1');
+      op1.setAttribute('name', 'firstChoice');
+      op1.setAttribute('type', 'radio');
+      op1.setAttribute('value','Player 1');
+
+      const label1 = _selectMain.querySelector('div').appendChild(document.createElement('label'));
+      label1.setAttribute('for', 'turnChoice1');
+      label1.setAttribute('id', 'label1');
+      label1.textContent = 'Player 1';
+
+      const op2 = _selectMain.querySelector('div').appendChild(document.createElement('input'));
+      op2.setAttribute('id', 'turnChoice2');
+      op2.setAttribute('name', 'firstChoice');
+      op2.setAttribute('type', 'radio');
+      op2.setAttribute('value','Player 2');
+
+      const label2 = _selectMain.querySelector('div').appendChild(document.createElement('label'));
+      label2.setAttribute('for', 'turnChoice2');
+      label2.setAttribute('id', 'label2');
+      label2.textContent = 'Player 2';
+
+      _selectMain.querySelector('span').appendChild(createButton);
+      createButton.setAttribute('id', 'startGameButton')
+      createButton.setAttribute('type', 'submit')
+      createButton.textContent = "Start Game!";
+
+    }else {
     const createSpan = document.createElement('span');
     const createH2 = document.createElement('h2');
     const createButton = document.createElement('button');
@@ -277,6 +377,7 @@ const settingsForm = (function() {
     createButton.setAttribute('id', 'startGameButton')
     createButton.setAttribute('type', 'submit')
     createButton.textContent = "Start Game!";
+    };
   };
   function formVerify() {
     if (_form.player1Name.value == '' || _form.player2Name.value ==  '') {
@@ -292,6 +393,7 @@ const settingsForm = (function() {
   };
 };
   return {
+    onePlayer: onePlayer,
     twoPlayer: twoPlayer,
     formVerify: formVerify,
   };
@@ -426,10 +528,31 @@ const gameFlow = (function() {
   const _selectNav = document.querySelector('nav');
 
   //first screen menu - 1 player & 2 player buttons
-  _onePlayerButton.addEventListener('click', () => {});
+  _onePlayerButton.addEventListener('click', (e) => {settingsForm.onePlayer(), e.preventDefault()});
   _twoPlayerButton.addEventListener('click', (e) => {settingsForm.twoPlayer(), e.preventDefault()});
   //second screen | settings form
 
+  function computerPlay() {
+    let fillByX = gameBoardScore.map(string => string.includes("O") || string.includes("X"))
+    let indexListEmpty = [];
+    let computerPlay = '';
+
+    function getRandomArbitrary(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    for(let i=0; i<fillByX.length;i++) {
+      if (fillByX[i] == false) indexListEmpty.push(i);
+    };
+    for (let i = 0; i < 1000; i++) {
+      let num = parseInt(getRandomArbitrary(1,9).toFixed(0));
+      if(indexListEmpty.includes(num)) {
+        computerPlay = num;
+        break;
+      };
+    };
+    return computerPlay;
+  };
   function startGameEvent() {
     const startGameButton = document.getElementById('startGameButton');
     startGameButton.addEventListener('click', (e) => {e.preventDefault(), settingsForm.formVerify()});
@@ -473,7 +596,6 @@ const gameFlow = (function() {
     }, 700);
   };
   function _checkTurn(playerOneTurn, playerTwoTurn) {
-  
     if(gameBoardScore.includes('X') || gameBoardScore.includes('O')) {
       if (turnSymbol == 'X') {
         turnSymbol = 'O';
@@ -488,12 +610,24 @@ const gameFlow = (function() {
     }else {
       turnSymbol = 'O';
       return;
-    }
-  };
+    };
+};
   const thePlayChoice = (_boxNum, index) => {
+    if (playerTwo.name == 'Computer') {
+      turnSymbol = playerOne.symbol
+      gameBoardScore[index] = turnSymbol;
+      let compBoxNum = computerPlay();
+      gameBoardScore[compBoxNum] = 'O';
+      console.log(gameBoardScore);
+      displayController.placeSymbol(_boxNum,turnSymbol,compBoxNum);
+    }else {
     _checkTurn(playerOne.turn, playerTwo.turn);
     gameBoardScore[index] = turnSymbol;
-    displayController.placeSymbol(_boxNum,turnSymbol);
+    let compBoxNum = computerPlay();
+    gameBoardScore[compBoxNum] = 'O';
+    console.log(gameBoardScore);
+    displayController.placeSymbol(_boxNum,turnSymbol,compBoxNum);
+    }
   };
   function checkGameOver() {
       let symbol = '';
@@ -663,5 +797,6 @@ function _reset() {
     thePlayChoice: thePlayChoice,
     checkGameOver: checkGameOver,
     endGameEvent: endGameEvent,
+    computerPlay: computerPlay,
   };
 })();
