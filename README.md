@@ -25,6 +25,7 @@
 
   ![GIF demo](graphics/gamedemo.gif)
 
+The next two images showcase responsive web design for Galaxy S5 & Ipad Pro.
   <image src="graphics/RWD.png">
   <image src="graphics/RWD2.png">
 </details>
