@@ -33,7 +33,7 @@ The next two images showcase responsive web design for Galaxy S5 & Ipad Pro.
 ## Goals:
 - [✔️] Create gameBoard , displayController and players. Use what I have learned using factories and modules to organize code.
 - [✔️] Try to tuck everything away and have as little global code as possible.
-- [✔️] Set up your HTML and write a javaScript funciton that will render the contents of the gameBoard array to the webpage.
+- [✔️] Set up your HTML and write a JavaScript function that will render the contents of the gameBoard array to the web page.
 - [✔️] Build the functions that allow players to add marks to a specific spot on the board, then tie it to the DOM.
 - [✔️] Build the logic that checks for when the game is over! Should check for 3-in-a-row and a tie.
 - [✔️] Clean up the interface to allow players to put in their names, include a button to start/restart the game and add a display element that congratulates the winning player!
@@ -50,7 +50,7 @@ The next two images showcase responsive web design for Galaxy S5 & Ipad Pro.
 
 ## Summary
 
-This project was a lot of fun. It focused on modules and factories. No more writing code however I like. This took planning and a thought out process. As a personal goal I tried my best to learn responsive web design and incorperate the design in my project. I did add a few unique transitions to the game. The winning transitions are disabled if you are using a smaller screen "mobile friendly". Currently you can play 1 player (you vs computer) or 2 player. You can decide which players turn starts the game!
+This project was a lot of fun. It focused on modules and factories. No more writing code however I like. This took planning and a thought out process. As a personal goal I tried my best to learn responsive web design and incorporate the design in my project. I did add a few unique transitions to the game. The winning transitions are disabled if you are using a smaller screen "mobile friendly". Currently you can play 1 player (you vs computer) or 2 player. You can decide which players turn starts the game!
 
 ## Author
 
